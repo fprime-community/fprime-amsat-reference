@@ -1,3 +1,0 @@
-#!/media/psf/Home/Sandbox/fprime-amsat-reference/amsat/fprime-venv/bin/python3
-from Cheetah.CheetahWrapper import _cheetah_compile
-_cheetah_compile()
