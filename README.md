@@ -13,33 +13,43 @@ The CubeSatSim(TM) is a low cost satellite emulator that runs on solar panels an
 ## AMSAT® CubeSat Simulator Hardware Block Diagram
 ![CubeSatSim Block Diagram](https://github.com/user-attachments/assets/a09086b9-2a05-4b4e-91a7-f8360718b6ce)
 
-## Building and Running the F' Deployments for the AMSAT® CubeSat Simulator
+## AMSAT® CubeSat Simulator Deployments
 There are two F' deployments for the AMSAT® CubeSat. 
 1. CHDDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
 2. MainDeployment - Executes on the Raspberry Pi Pico mounted on the AMSAT® CubeSat Main Board.
 
-### Raspberry PI ARM Cross-Compiler
+## Raspberry PI ARM Cross-Compiler
 Below is a link to the setup tutorial to install the Raspberry PI ARM Cross-Compiler:
 [F´ Cross-Compilation Setup Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation/)
 
-### Cloning the Repository  
-1. git clone https://github.com/fprime-community/fprime-amsat-reference.git
-2. git submodule update --init --recursive
+## Getting Started  
+Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat Repo:
+1. Install the F' Framework [Installing F'](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/)
+2. fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git
+3. cd fprime-amsat-reference
+4. . fprime-venv/bin/activate
+5. pip install -r lib/fprime/requirements.txt --break-system-packages
+6. git submodule update --init --recursive
 
-### Start the Python Virtual Environment
-The python virtual environment is required to build the F' deployments.
-1. cd fprime-amsat-reference
-2. . fprime-venv/bin/activate
+## Building the AMSAT® CubeSat F' Executables
+The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted on the main processing board and interfaces with the Gyro's, Temperature, Pressure Sensors and the FM Transceiver Board. The Raspberry PI Zero interfaces with its own temperature sensor and processes the commands and telemetry and interfaces. The Raspberry PI camera is connected to the Raspberry PI Zero. 
+
+The Raspberry PI Pico and the Raspberry PI Zero execute two different Operating Systems (OS) environments. Thus, the build steps for each Raspberry PI are slightly different and use different libraries.  
 
 ### Building CHDDeployment
+The CHDDeployment executes on the Raspberry PI Zero executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
 1. cd CHDDeployment
-2. fprime-util generate
-3. fprime-util build
+2. fprime-util generate aarch64-linux -f (Note: -f will delete any existing previous aarch64-linux build)
+3. fprime-util build aarch64-linux 
 
 ### Building MainDeployment
+The MainDeployment executes on the Raspberry PI Pico. The Raspberry Pi Pico doesn't run a full operating system like Raspberry Pi Zero. Instead, it's typically programmed directly with code, similar to an Arduino.
+
 1. cd MainDeployment
 2. fprime-util generate
 3. fprime-util build
 
-## Installing F' FSW on the AMSAT® CubeSat Simulator on Raspberry Pi Zero and Pico Boards
+
+## Loading and running the AMSAT® CubeSat F' Executables
 TBD
+
