@@ -24,8 +24,9 @@ Below is a link to the setup tutorial to install the Raspberry PI ARM Cross-Comp
 
 ## Getting Started  
 Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat Repo:
-1. Install the F' Framework [Installing F'](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/)
-2. fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git
+1. Install the F' [system requirements](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#system-requirements).
+2. Install fprime-bootstrap `pip install fprime-bootstrap`
+3. Run `fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git`
 3. cd fprime-amsat-reference
 4. . fprime-venv/bin/activate
 5. pip install -r lib/fprime/requirements.txt --break-system-packages
