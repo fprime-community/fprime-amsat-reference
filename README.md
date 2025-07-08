@@ -15,7 +15,7 @@ The CubeSatSim(TM) is a low cost satellite emulator that runs on solar panels an
 
 ## AMSAT® CubeSat Simulator Deployments
 There are two F' deployments for the AMSAT® CubeSat. 
-1. CHDDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
+1. CDHDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
 2. MainDeployment - Executes on the Raspberry Pi Pico mounted on the AMSAT® CubeSat Main Board.
 
 ## Raspberry PI ARM Cross-Compiler
@@ -35,9 +35,9 @@ The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted
 
 The Raspberry PI Pico and the Raspberry PI Zero execute two different Operating Systems (OS) environments. Thus, the build steps for each Raspberry PI are slightly different and use different libraries.  
 
-### Building CHDDeployment
-The CHDDeployment executes on the Raspberry PI Zero executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
-1. cd CHDDeployment
+### Building CDHDeployment
+The CDHDeployment executes on the Raspberry PI Zero executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
+1. cd CDHDeployment
 2. fprime-util generate aarch64-linux -f (Note: -f will delete any existing previous aarch64-linux build)
 3. fprime-util build aarch64-linux 
 
