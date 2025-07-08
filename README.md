@@ -27,10 +27,8 @@ Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat
 1. Install the F' [system requirements](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#system-requirements).
 2. Install fprime-bootstrap `pip install fprime-bootstrap`
 3. Run `fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git`
-3. cd fprime-amsat-reference
-4. . fprime-venv/bin/activate
-5. pip install -r lib/fprime/requirements.txt --break-system-packages
-6. git submodule update --init --recursive
+4. cd fprime-amsat-reference
+5. . fprime-venv/bin/activate
 
 ## Building the AMSAT® CubeSat F' Executables
 The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted on the main processing board and interfaces with the Gyro's, Temperature, Pressure Sensors and the FM Transceiver Board. The Raspberry PI Zero interfaces with its own temperature sensor and processes the commands and telemetry and interfaces. The Raspberry PI camera is connected to the Raspberry PI Zero. 

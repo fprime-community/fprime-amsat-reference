@@ -1,17 +1,17 @@
 // ======================================================================
-// \title  CHDDeploymentTopology.hpp
+// \title  CDHDeploymentTopology.hpp
 // \brief header file containing the topology instantiation definitions
 //
 // ======================================================================
-#ifndef CHDDEPLOYMENT_CHDDEPLOYMENTTOPOLOGY_HPP
-#define CHDDEPLOYMENT_CHDDEPLOYMENTTOPOLOGY_HPP
-// Included for access to CHDDeployment::TopologyState and CHDDeployment::ConfigObjects::pingEntries. These definitions are required by the
+#ifndef CDHDEPLOYMENT_CDHDEPLOYMENTTOPOLOGY_HPP
+#define CDHDEPLOYMENT_CDHDEPLOYMENTTOPOLOGY_HPP
+// Included for access to CDHDeployment::TopologyState and CDHDeployment::ConfigObjects::pingEntries. These definitions are required by the
 // autocoder, but are also used in this hand-coded topology.
-#include <CHDDeployment/Top/CHDDeploymentTopologyDefs.hpp>
+#include <CDHDeployment/Top/CDHDeploymentTopologyDefs.hpp>
 
-// Remove unnecessary CHDDeployment:: qualifications
-using namespace CHDDeployment;
-namespace CHDDeployment {
+// Remove unnecessary CDHDeployment:: qualifications
+using namespace CDHDeployment;
+namespace CDHDeployment {
 /**
  * \brief initialize and run the F´ topology
  *
@@ -32,7 +32,7 @@ namespace CHDDeployment {
  * custom tasks often start radio communication it is convenient to start them last.
  *
  * The state argument carries command line inputs used to setup the topology. For an explanation of the required type
- * CHDDeployment::TopologyState see: CHDDeploymentTopologyDefs.hpp.
+ * CDHDeployment::TopologyState see: CDHDeploymentTopologyDefs.hpp.
  *
  * \param state: object shuttling CLI arguments (e.g. hostname/port, or UART baudrate) needed to construct the topology
  */
@@ -53,7 +53,7 @@ void setupTopology(const TopologyState& state);
  * Step 1, 2, 3, and 4 must occur in-order as the tasks must be stopped before being joined. These tasks must be stopped
  * and joined before any active resources may be deallocated.
  *
- * For an explanation of the required type CHDDeployment::TopologyState see: CHDDeploymentTopologyDefs.hpp.
+ * For an explanation of the required type CDHDeployment::TopologyState see: CDHDeploymentTopologyDefs.hpp.
  *
  * \param state: state object provided to setupTopology
  */
@@ -82,5 +82,5 @@ void startSimulatedCycle(Fw::TimeInterval interval = Fw::TimeInterval(1,0));
  */
 void stopSimulatedCycle();
 
-} // namespace CHDDeployment
+} // namespace CDHDeployment
 #endif

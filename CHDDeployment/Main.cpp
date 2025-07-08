@@ -4,7 +4,7 @@
 //
 // ======================================================================
 // Used to access topology functions
-#include <CHDDeployment/Top/CHDDeploymentTopology.hpp>
+#include <CDHDeployment/Top/CDHDeploymentTopology.hpp>
 // OSAL initialization
 #include <Os/Os.hpp>
 // Used for signal handling shutdown
@@ -34,7 +34,7 @@ void print_usage(const char* app) {
  * @param signum
  */
 static void signalHandler(int signum) {
-    CHDDeployment::stopSimulatedCycle();
+    CDHDeployment::stopSimulatedCycle();
 }
 
 /**
@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
         }
     }
     // Object for communicating state to the reference topology
-    CHDDeployment::TopologyState inputs;
+    CDHDeployment::TopologyState inputs;
     inputs.hostname = hostname;
     inputs.port = port_number;
 
@@ -85,9 +85,9 @@ int main(int argc, char* argv[]) {
     (void)printf("Hit Ctrl-C to quit\n");
 
     // Setup, cycle, and teardown topology
-    CHDDeployment::setupTopology(inputs);
-    CHDDeployment::startSimulatedCycle(Fw::TimeInterval(1,0));  // Program loop cycling rate groups at 1Hz
-    CHDDeployment::teardownTopology(inputs);
+    CDHDeployment::setupTopology(inputs);
+    CDHDeployment::startSimulatedCycle(Fw::TimeInterval(1,0));  // Program loop cycling rate groups at 1Hz
+    CDHDeployment::teardownTopology(inputs);
     (void)printf("Exiting...\n");
     return 0;
 }

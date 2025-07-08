@@ -1,24 +1,23 @@
 // ======================================================================
-// \title  CHDDeploymentTopologyDefs.hpp
+// \title  CDHDeploymentTopologyDefs.hpp
 // \brief required header file containing the required definitions for the topology autocoder
 //
 // ======================================================================
-#ifndef CHDDEPLOYMENT_CHDDEPLOYMENTTOPOLOGYDEFS_HPP
-#define CHDDEPLOYMENT_CHDDEPLOYMENTTOPOLOGYDEFS_HPP
+#ifndef CDHDEPLOYMENT_CDHDEPLOYMENTTOPOLOGYDEFS_HPP
+#define CDHDEPLOYMENT_CDHDEPLOYMENTTOPOLOGYDEFS_HPP
 
-#include "Drv/BlockDriver/BlockDriver.hpp"
 #include "Fw/Types/MallocAllocator.hpp"
-#include "CHDDeployment/Top/FppConstantsAc.hpp"
+#include "CDHDeployment/Top/FppConstantsAc.hpp"
 #include "Svc/FramingProtocol/FprimeProtocol.hpp"
 #include "Svc/Health/Health.hpp"
 
 // Definitions are placed within a namespace named after the deployment
-namespace CHDDeployment {
+namespace CDHDeployment {
 
 /**
  * \brief required type definition to carry state
  *
- * The topology autocoder requires an object that carries state with the name `CHDDeployment::TopologyState`. Only the type
+ * The topology autocoder requires an object that carries state with the name `CDHDeployment::TopologyState`. Only the type
  * definition is required by the autocoder and the contents of this object are otherwise opaque to the autocoder. The contents are entirely up
  * to the definition of the project. Here, they are derived from command line inputs.
  */
@@ -47,42 +46,42 @@ struct TopologyState {
  * ```
  */
 namespace PingEntries {
-namespace CHDDeployment_blockDrv {
+namespace CDHDeployment_blockDrv {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_tlmSend {
+namespace CDHDeployment_tlmSend {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_cmdDisp {
+namespace CDHDeployment_cmdDisp {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_cmdSeq {
+namespace CDHDeployment_cmdSeq {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_eventLogger {
+namespace CDHDeployment_eventLogger {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_fileDownlink {
+namespace CDHDeployment_fileDownlink {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_fileManager {
+namespace CDHDeployment_fileManager {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_fileUplink {
+namespace CDHDeployment_fileUplink {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_prmDb {
+namespace CDHDeployment_prmDb {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_rateGroup1 {
+namespace CDHDeployment_rateGroup1 {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_rateGroup2 {
+namespace CDHDeployment_rateGroup2 {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CHDDeployment_rateGroup3 {
+namespace CDHDeployment_rateGroup3 {
 enum { WARN = 3, FATAL = 5 };
 }
 }  // namespace PingEntries
-}  // namespace CHDDeployment
+}  // namespace CDHDeployment
 #endif
