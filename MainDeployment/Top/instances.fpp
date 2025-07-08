@@ -13,26 +13,6 @@ module MainDeployment {
   # Active component instances
   # ----------------------------------------------------------------------
 
-  instance blockDrv: Drv.BlockDriver base id 0x0100 \
-    queue size Default.QUEUE_SIZE \
-    stack size Default.STACK_SIZE \
-    priority 140
-
-  instance rateGroup1: Svc.ActiveRateGroup base id 0x0200 \
-    queue size Default.QUEUE_SIZE \
-    stack size Default.STACK_SIZE \
-    priority 120
-
-  instance rateGroup2: Svc.ActiveRateGroup base id 0x0300 \
-    queue size Default.QUEUE_SIZE \
-    stack size Default.STACK_SIZE \
-    priority 119
-
-  instance rateGroup3: Svc.ActiveRateGroup base id 0x0400 \
-    queue size Default.QUEUE_SIZE \
-    stack size Default.STACK_SIZE \
-    priority 118
-
   instance cmdDisp: Svc.CommandDispatcher base id 0x0500 \
     queue size 20 \
     stack size Default.STACK_SIZE \
@@ -44,7 +24,7 @@ module MainDeployment {
     priority 100
 
   instance comQueue: Svc.ComQueue base id 0x0700 \
-      queue size Default.QUEUE_SIZE \
+      queue size 50 \
       stack size Default.STACK_SIZE \
       priority 100 \
 
@@ -98,10 +78,15 @@ module MainDeployment {
   # Passive component instances
   # ----------------------------------------------------------------------
 
-  @ Communications driver. May be swapped with other com drivers like UART or TCP
-  instance comDriver: Drv.TcpClient base id 0x4000
+  instance rateGroup1: Svc.PassiveRateGroup base id 0x0200
 
-  instance framer: Svc.Framer base id 0x4100
+  instance rateGroup2: Svc.PassiveRateGroup base id 0x0300
+
+  instance rateGroup3: Svc.PassiveRateGroup base id 0x0400
+
+  instance comDriver: Arduino.StreamDriver base id 0x4000
+
+  instance framer: Svc.FprimeFramer base id 0x4100
 
   instance fatalAdapter: Svc.AssertFatalAdapter base id 0x4200
 
@@ -109,16 +94,23 @@ module MainDeployment {
 
   instance bufferManager: Svc.BufferManager base id 0x4400
 
-  instance chronoTime: Svc.ChronoTime base id 0x4500
+  instance systemTime: Arduino.ArduinoTime base id 0x4500
 
-  instance rateGroupDriver: Svc.RateGroupDriver base id 0x4600
+  instance rateGroupDriver: Arduino.HardwareRateDriver base id 0x4600
 
   instance textLogger: Svc.PassiveTextLogger base id 0x4800
 
-  instance deframer: Svc.Deframer base id 0x4900
+  instance deframer: Svc.FprimeDeframer base id 0x4900
 
   instance systemResources: Svc.SystemResources base id 0x4A00
 
   instance comStub: Svc.ComStub base id 0x4B00
 
+  instance frameAccumulator: Svc.FrameAccumulator base id 0x4C00
+
+  instance fprimeRouter: Svc.FprimeRouter base id 0x4D00
+
+  instance version: Svc.Version base id 0x4E00
+
+  instance rateDriver: Arduino.HardwareRateDriver base id 0x4F00
 }

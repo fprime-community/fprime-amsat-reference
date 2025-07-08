@@ -6,7 +6,6 @@
 #ifndef MAINDEPLOYMENT_MAINDEPLOYMENTTOPOLOGYDEFS_HPP
 #define MAINDEPLOYMENT_MAINDEPLOYMENTTOPOLOGYDEFS_HPP
 
-#include "Drv/BlockDriver/BlockDriver.hpp"
 #include "Fw/Types/MallocAllocator.hpp"
 #include "MainDeployment/Top/FppConstantsAc.hpp"
 #include "Svc/FramingProtocol/FprimeProtocol.hpp"
@@ -23,8 +22,8 @@ namespace MainDeployment {
  * to the definition of the project. Here, they are derived from command line inputs.
  */
 struct TopologyState {
-    const CHAR* hostname;
-    U16 port;
+    const CHAR* uartDevice;
+    U32 baudRate;
 };
 
 /**

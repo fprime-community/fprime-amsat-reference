@@ -29,24 +29,25 @@ Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat
 3. Run `fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git`
 4. cd fprime-amsat-reference
 5. . fprime-venv/bin/activate
+6. Follow these steps to [install the Arduino CLI](https://github.com/fprime-community/fprime-baremetal-reference/blob/main/docs/arduino-cli-install.md), which is needed for building the MainDeployment.
 
 ## Building the AMSAT® CubeSat F' Executables
-The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted on the main processing board and interfaces with the Gyro's, Temperature, Pressure Sensors and the FM Transceiver Board. The Raspberry PI Zero interfaces with its own temperature sensor and processes the commands and telemetry and interfaces. The Raspberry PI camera is connected to the Raspberry PI Zero. 
+The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted on the main processing board and interfaces with the Gyro's, Temperature, Pressure Sensors and the FM Transceiver Board. The Rasberry Pi Zero 2 interfaces with its own temperature sensor and processes the commands and telemetry and interfaces. The Raspberry PI camera is connected to the Rasberry Pi Zero 2. 
 
-The Raspberry PI Pico and the Raspberry PI Zero execute two different Operating Systems (OS) environments. Thus, the build steps for each Raspberry PI are slightly different and use different libraries.  
+The Raspberry PI Pico and the Rasberry Pi Zero 2 execute two different Operating Systems (OS) environments. Thus, the build steps for each Raspberry PI are slightly different and use different libraries.  
 
 ### Building CDHDeployment
-The CDHDeployment executes on the Raspberry PI Zero executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
-1. cd CDHDeployment
-2. fprime-util generate aarch64-linux -f (Note: -f will delete any existing previous aarch64-linux build)
-3. fprime-util build aarch64-linux 
+The CDHDeployment executes on the Rasberry Pi Zero 2 executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
+1. `cd CDHDeployment`
+2. `fprime-util generate aarch64-linux -f` (Note: -f will delete any existing previous aarch64-linux build)
+3. `fprime-util build aarch64-linux`
 
 ### Building MainDeployment
-The MainDeployment executes on the Raspberry PI Pico. The Raspberry Pi Pico doesn't run a full operating system like Raspberry Pi Zero. Instead, it's typically programmed directly with code, similar to an Arduino.
+The MainDeployment executes on the Raspberry PI Pico. The Raspberry Pi Pico doesn't run a full operating system like Raspberry Pi Zero. Instead, it's typically programmed directly with code, similar to an Arduino. This assumes you have installed the Arduino CLI.
 
 1. cd MainDeployment
-2. fprime-util generate
-3. fprime-util build
+2. fprime-util generate rpipico -f
+3. fprime-util build rpipico
 
 
 ## Loading and running the AMSAT® CubeSat F' Executables
