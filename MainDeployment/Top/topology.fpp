@@ -47,6 +47,7 @@ module MainDeployment {
     instance rateGroup2
     instance rateGroup3
     instance rateGroupDriver
+    instance rateDriver
     instance textLogger
     instance systemResources
     instance version
