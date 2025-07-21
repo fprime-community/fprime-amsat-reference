@@ -19,6 +19,11 @@ telemetry packets CDHDeploymentPackets {
     CDHDeployment.fileManager.CommandsExecuted
     CDHDeployment.comQueue.comQueueDepth
     CDHDeployment.comQueue.buffQueueDepth
+    # USB Sound Card telemetry
+    CDHDeployment.usbSoundCard.AUDIO_INPUT_LEVEL
+    CDHDeployment.usbSoundCard.DEVICE_CONNECTED
+    CDHDeployment.usbSoundCard.FRAMES_PROCESSED
+    CDHDeployment.usbSoundCard.AUDIO_PEAK_LEVEL
     # Note: Uncomment when using Svc:TlmPacketizer
     # CDHDeployment.tlmSend.SendLevel
   }
