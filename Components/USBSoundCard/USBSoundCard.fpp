@@ -45,7 +45,7 @@ module Components {
         event AUDIO_CAPTURE_ALREADY_STARTED severity warning high id 3 format "Audio capture already started"
         
         @ Audio level too high
-        event AUDIO_LEVEL_HIGH severity warning low id 4 format "Audio input level too high - reduce gain"
+        event AUDIO_LEVEL_HIGH severity warning low id 4 format "Audio input level too high"
         
         # ===============================================
         # SCHEDULED INPUT - For periodic audio processing

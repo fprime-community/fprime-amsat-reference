@@ -5,7 +5,7 @@
 // ======================================================================
 
 #include "Components/USBSoundCard/USBSoundCard.hpp"
-#include <alsa/asoundlib.h>  // For ALSA audio capture
+#include <alsa/asoundlib.h>
 #include <cmath>
 
 namespace Components {
@@ -85,11 +85,6 @@ void USBSoundCard::run_handler(FwIndexType portNum, U32 context) {
 // ----------------------------------------------------------------------
 
 bool USBSoundCard::initializeAudioDevice() {
-#ifdef __aarch64__
-    // For ARM cross-compilation, stub out ALSA calls
-    printf("[USB_SOUND] ARM build - ALSA functionality will be enabled when running on Pi\n");
-    return true; // Return true so commands don't fail
-#else
     int err;
     
     printf("[USB_SOUND] Attempting to open USB sound card...\n");
@@ -166,28 +161,16 @@ bool USBSoundCard::initializeAudioDevice() {
     
     printf("[USB_SOUND] Audio device initialized successfully\n");
     return true;
-#endif // __aarch64__
 }
 
 void USBSoundCard::stopAudioCapture() {
-#ifndef __aarch64__
     if (m_audioDevice) {
         snd_pcm_close(m_audioDevice);
         m_audioDevice = nullptr;
     }
-#endif
 }
 
 void USBSoundCard::processAudioData() {
-#ifdef __aarch64__
-    // For ARM builds, simulate audio processing to test telemetry
-    static U32 simulatedLevel = 0;
-    simulatedLevel = (simulatedLevel + 10) % 100;
-    this->tlmWrite_AUDIO_INPUT_LEVEL(simulatedLevel);
-    m_framesProcessed++;
-    this->tlmWrite_FRAMES_PROCESSED(m_framesProcessed);
-    return;
-#else
     if (!m_audioDevice) {
         return;
     }
@@ -223,6 +206,8 @@ void USBSoundCard::processAudioData() {
         
         // Send telemetry
         this->tlmWrite_AUDIO_INPUT_LEVEL(audioLevel);
+        m_framesProcessed++;
+        this->tlmWrite_FRAMES_PROCESSED(m_framesProcessed);
         
         // Debug print every 10th call to avoid spam
         static U32 debugCounter = 0;
@@ -242,7 +227,6 @@ void USBSoundCard::processAudioData() {
             }
         }
     }
-#endif // __aarch64__
 }
 
 } // namespace Components

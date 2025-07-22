@@ -9,13 +9,7 @@
 
 #include "Components/USBSoundCard/USBSoundCardComponentAc.hpp"
 
-// Only include ALSA for native builds
-#ifndef __aarch64__
 #include <alsa/asoundlib.h>
-#else
-// For ARM builds, define minimal ALSA types for compilation
-typedef struct _snd_pcm snd_pcm_t;
-#endif
 
 namespace Components {
 
