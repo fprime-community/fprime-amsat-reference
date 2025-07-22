@@ -4,8 +4,8 @@
 //
 // ======================================================================
 // Used to access topology functions
-#include <BaseDeployment/Top/BaseDeploymentTopologyAc.hpp>
-#include <BaseDeployment/Top/BaseDeploymentTopology.hpp>
+#include <MainDeployment/Top/MainDeploymentTopologyAc.hpp>
+#include <MainDeployment/Top/MainDeploymentTopology.hpp>
 // Used for Task Runner
 #include <fprime-baremetal/Os/TaskRunner/TaskRunner.hpp>
 
@@ -26,12 +26,12 @@ void setup()
     Fw::Logger::log("Program Started\n");
 
     // Object for communicating state to the reference topology
-    BaseDeployment::TopologyState inputs;
-    inputs.uartNumber = 0;
-    inputs.uartBaud = 115200;
+    MainDeployment::TopologyState inputs;
+    inputs.uartDevice = "/dev/null";
+    inputs.baudRate = 115200;
 
     // Setup, cycle, and teardown topology
-    BaseDeployment::setupTopology(inputs);
+    MainDeployment::setupTopology(inputs);
 }
 
 void loop() {

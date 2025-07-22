@@ -96,7 +96,7 @@ module MainDeployment {
 
   instance systemTime: Arduino.ArduinoTime base id 0x4500
 
-  instance rateGroupDriver: Arduino.HardwareRateDriver base id 0x4600
+  instance rateGroupDriver: Svc.RateGroupDriver base id 0x4600
 
   instance textLogger: Svc.PassiveTextLogger base id 0x4800
 

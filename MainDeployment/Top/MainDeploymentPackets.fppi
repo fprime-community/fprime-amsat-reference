@@ -2,9 +2,9 @@ telemetry packets MainDeploymentPackets {
 
   packet CDH id 1 group 1 {
     MainDeployment.cmdDisp.CommandsDispatched
-    MainDeployment.rateGroup1.RgMaxTime
-    MainDeployment.rateGroup2.RgMaxTime
-    MainDeployment.rateGroup3.RgMaxTime
+    MainDeployment.rateGroup1.MaxCycleTime
+    MainDeployment.rateGroup2.MaxCycleTime
+    MainDeployment.rateGroup3.MaxCycleTime
     MainDeployment.cmdSeq.CS_LoadCommands
     MainDeployment.cmdSeq.CS_CancelCommands
     MainDeployment.cmdSeq.CS_CommandsExecuted
@@ -24,9 +24,9 @@ telemetry packets MainDeploymentPackets {
   }
 
   packet CDHErrors id 2 group 1 {
-    MainDeployment.rateGroup1.RgCycleSlips
-    MainDeployment.rateGroup2.RgCycleSlips
-    MainDeployment.rateGroup3.RgCycleSlips
+    #MainDeployment.rateGroup1.RgCycleSlips
+    #MainDeployment.rateGroup2.RgCycleSlips
+    #MainDeployment.rateGroup3.RgCycleSlips
     MainDeployment.cmdSeq.CS_Errors
     MainDeployment.fileUplink.Warnings
     MainDeployment.fileDownlink.Warnings
@@ -136,6 +136,13 @@ telemetry packets MainDeploymentPackets {
 
 } omit {
   MainDeployment.cmdDisp.CommandErrors
-  MainDeployment.comDriver.BytesRecv
-  MainDeployment.comDriver.BytesSent
+  MainDeployment.rateGroup1.CycleCount
+  MainDeployment.rateGroup2.CycleCount
+  MainDeployment.rateGroup3.CycleCount
+  MainDeployment.rateGroup1.CycleTime
+  MainDeployment.rateGroup2.CycleTime
+  MainDeployment.rateGroup3.CycleTime
+
+  #MainDeployment.comDriver.BytesRecv
+  #MainDeployment.comDriver.BytesSent
 }
