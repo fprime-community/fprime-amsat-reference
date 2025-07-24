@@ -24,6 +24,9 @@ telemetry packets CDHDeploymentPackets {
     CDHDeployment.usbSoundCard.DEVICE_CONNECTED
     CDHDeployment.usbSoundCard.FRAMES_PROCESSED
     CDHDeployment.usbSoundCard.AUDIO_PEAK_LEVEL
+    CDHDeployment.usbSoundCard.TRANSMISSION_ACTIVE
+    CDHDeployment.usbSoundCard.LAST_TRANSMISSION_TIME
+    CDHDeployment.usbSoundCard.PACKETS_TRANSMITTED
     # Note: Uncomment when using Svc:TlmPacketizer
     # CDHDeployment.tlmSend.SendLevel
   }

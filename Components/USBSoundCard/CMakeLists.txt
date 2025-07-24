@@ -18,11 +18,12 @@ register_fprime_module(
         "${CMAKE_CURRENT_LIST_DIR}/USBSoundCard.cpp"
 )
 
-# Handle ALSA library linking with fallback for cross-compilation
+# Handle ALSA library linking
+# For cross-compilation, stub out ALSA - it will be linked on the target
 if(CMAKE_CROSSCOMPILING)
-    # For cross-compilation, don't link ALSA due to GLIBC version issues
-    # ALSA functionality will be loaded dynamically on the Pi
-    message(STATUS "Cross-compiling: ALSA functionality stubbed out")
+    message(STATUS "Cross-compiling: ALSA functionality stubbed out - will be linked on target")
+    # Add compile definition to indicate ALSA should be stubbed
+    target_compile_definitions(${MODULE_NAME} PRIVATE ALSA_STUBBED)
 else()
     # For native compilation, try pkg-config first, fall back to direct linking
     find_package(PkgConfig QUIET)

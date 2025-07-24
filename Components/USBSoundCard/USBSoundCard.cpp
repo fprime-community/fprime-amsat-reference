@@ -5,9 +5,78 @@
 // ======================================================================
 
 #include "Components/USBSoundCard/USBSoundCard.hpp"
-#include <alsa/asoundlib.h>
 #include <cmath>
 #include <cstring>
+
+#ifdef ALSA_STUBBED
+// Stub ALSA functions for cross-compilation
+#define SND_PCM_STREAM_CAPTURE 1
+#define SND_PCM_FORMAT_S16_LE 2
+
+struct snd_pcm_hw_params_t;
+
+static inline int snd_pcm_open(snd_pcm_t **pcm, const char *name, int stream, int mode) {
+    printf("[USB_SOUND] STUB: snd_pcm_open called (ALSA not available during cross-compilation)\n");
+    return -1;
+}
+
+static inline int snd_pcm_close(snd_pcm_t *pcm) {
+    printf("[USB_SOUND] STUB: snd_pcm_close called\n");
+    return 0;
+}
+
+static inline void snd_pcm_hw_params_alloca(snd_pcm_hw_params_t **ptr) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params_alloca called\n");
+    *ptr = nullptr;
+}
+
+static inline int snd_pcm_hw_params_any(snd_pcm_t *pcm, snd_pcm_hw_params_t *params) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params_any called\n");
+    return -1;
+}
+
+static inline int snd_pcm_hw_params_set_format(snd_pcm_t *pcm, snd_pcm_hw_params_t *params, int format) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params_set_format called\n");
+    return -1;
+}
+
+static inline int snd_pcm_hw_params_set_rate_near(snd_pcm_t *pcm, snd_pcm_hw_params_t *params, unsigned int *val, int *dir) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params_set_rate_near called\n");
+    return -1;
+}
+
+static inline int snd_pcm_hw_params_set_channels(snd_pcm_t *pcm, snd_pcm_hw_params_t *params, unsigned int val) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params_set_channels called\n");
+    return -1;
+}
+
+static inline int snd_pcm_hw_params(snd_pcm_t *pcm, snd_pcm_hw_params_t *params) {
+    printf("[USB_SOUND] STUB: snd_pcm_hw_params called\n");
+    return -1;
+}
+
+static inline int snd_pcm_prepare(snd_pcm_t *pcm) {
+    printf("[USB_SOUND] STUB: snd_pcm_prepare called\n");
+    return -1;
+}
+
+static inline int snd_pcm_readi(snd_pcm_t *pcm, const void *buffer, unsigned long size) {
+    printf("[USB_SOUND] STUB: snd_pcm_readi called\n");
+    return -1;
+}
+
+static inline int snd_pcm_recover(snd_pcm_t *pcm, int err, int silent) {
+    printf("[USB_SOUND] STUB: snd_pcm_recover called\n");
+    return -1;
+}
+
+static inline const char* snd_strerror(int errnum) {
+    return "ALSA stubbed out during cross-compilation";
+}
+
+#else
+#include <alsa/asoundlib.h>
+#endif
 
 namespace Components {
 
