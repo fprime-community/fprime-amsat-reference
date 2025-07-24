@@ -7,6 +7,7 @@
 #include "Components/USBSoundCard/USBSoundCard.hpp"
 #include <alsa/asoundlib.h>
 #include <cmath>
+#include <cstring>
 
 namespace Components {
 
@@ -17,13 +18,19 @@ namespace Components {
 USBSoundCard::USBSoundCard(const char *const compName)
     : USBSoundCardComponentBase(compName),
       m_audioCapturing(false),
+      m_transmissionActive(false),
       m_audioDevice(nullptr),
       m_audioBuffer(nullptr),
       m_bufferSize(1024),
-      m_framesProcessed(0)
+      m_framesProcessed(0),
+      m_packetsTransmitted(0),
+      m_packetSequence(0)
 {
     // Initialize audio buffer
     m_audioBuffer = new short[m_bufferSize];
+    
+    // Initialize transmission buffer
+    initializeTransmissionBuffer();
 }
 
 USBSoundCard::~USBSoundCard() {
@@ -67,6 +74,39 @@ void USBSoundCard::STOP_CAPTURE_cmdHandler(FwOpcodeType opCode, U32 cmdSeq) {
     this->log_ACTIVITY_LO_AUDIO_CAPTURE_STOPPED();
     this->tlmWrite_DEVICE_CONNECTED(false);
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
+}
+
+void USBSoundCard::START_TRANSMISSION_cmdHandler(FwOpcodeType opCode, U32 cmdSeq) {
+    if (m_transmissionActive) {
+        this->log_WARNING_HI_AUDIO_TRANSMISSION_ALREADY_STARTED();
+        this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::EXECUTION_ERROR);
+        return;
+    }
+    
+    m_transmissionActive = true;
+    this->log_ACTIVITY_LO_AUDIO_TRANSMISSION_STARTED();
+    this->tlmWrite_TRANSMISSION_ACTIVE(true);
+    this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
+}
+
+void USBSoundCard::STOP_TRANSMISSION_cmdHandler(FwOpcodeType opCode, U32 cmdSeq) {
+    if (!m_transmissionActive) {
+        this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::EXECUTION_ERROR);
+        return;
+    }
+    
+    m_transmissionActive = false;
+    this->log_ACTIVITY_LO_AUDIO_TRANSMISSION_STOPPED();
+    this->tlmWrite_TRANSMISSION_ACTIVE(false);
+    this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
+}
+
+void USBSoundCard::SEND_TEST_PACKET_cmdHandler(FwOpcodeType opCode, U32 cmdSeq) {
+    if (sendTestPacket()) {
+        this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
+    } else {
+        this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::EXECUTION_ERROR);
+    }
 }
 
 // ----------------------------------------------------------------------
@@ -209,6 +249,16 @@ void USBSoundCard::processAudioData() {
         m_framesProcessed++;
         this->tlmWrite_FRAMES_PROCESSED(m_framesProcessed);
         
+        // Transmit audio data if transmission is active
+        if (m_transmissionActive) {
+            U32 dataSize = frames * sizeof(short);
+            if (transmitAudioPacket(m_audioBuffer, dataSize)) {
+                // Update transmission telemetry
+                Fw::Time currentTime = this->getTime();
+                this->tlmWrite_LAST_TRANSMISSION_TIME(currentTime.getSeconds());
+            }
+        }
+        
         // Debug print every 10th call to avoid spam
         static U32 debugCounter = 0;
         if (++debugCounter % 10 == 0) {
@@ -227,6 +277,99 @@ void USBSoundCard::processAudioData() {
             }
         }
     }
+}
+
+U32 USBSoundCard::calculateAudioLevel(const short* buffer, int frames) {
+    if (frames <= 0) {
+        return 0;
+    }
+    
+    long sum = 0;
+    for (int i = 0; i < frames; i++) {
+        sum += (long)buffer[i] * buffer[i];
+    }
+    
+    double rms = sqrt((double)sum / frames);
+    return (U32)(rms / 32767.0 * 255.0); // Scale to 0-255
+}
+
+void USBSoundCard::initializeTransmissionBuffer() {
+    // Allocate buffer for transmission (audio data + header)
+    const U32 maxAudioSize = m_bufferSize * sizeof(short);
+    const U32 headerSize = sizeof(U32) * 3; // sequence, timestamp, data size
+    const U32 totalSize = headerSize + maxAudioSize;
+    
+    // Allocate buffer memory
+    U8* bufferData = new U8[totalSize];
+    m_transmissionBuffer.setData(bufferData);
+    m_transmissionBuffer.setSize(totalSize);
+}
+
+bool USBSoundCard::transmitAudioPacket(const void* audioData, U32 dataSize) {
+    if (!m_transmissionActive) {
+        return false;
+    }
+    
+    try {
+        // Get current timestamp
+        Fw::Time currentTime = this->getTime();
+        
+        // Prepare packet header
+        U8* bufferPtr = m_transmissionBuffer.getData();
+        U32* header = reinterpret_cast<U32*>(bufferPtr);
+        
+        header[0] = m_packetSequence++;  // Sequence number
+        header[1] = currentTime.getSeconds();  // Timestamp seconds
+        header[2] = dataSize;  // Audio data size
+        
+        // Copy audio data after header
+        U8* audioPtr = bufferPtr + sizeof(U32) * 3;
+        std::memcpy(audioPtr, audioData, dataSize);
+        
+        // Set buffer size to actual data size
+        U32 totalPacketSize = sizeof(U32) * 3 + dataSize;
+        m_transmissionBuffer.setSize(totalPacketSize);
+        
+        // Send packet via buffer output port
+        this->bufferOut_out(0, m_transmissionBuffer);
+        
+        // Update telemetry
+        m_packetsTransmitted++;
+        this->tlmWrite_PACKETS_TRANSMITTED(m_packetsTransmitted);
+        
+        // Log transmission event
+        this->log_ACTIVITY_LO_PACKET_TRANSMITTED();
+        
+        return true;
+        
+    } catch (...) {
+        this->log_WARNING_HI_TRANSMISSION_ERROR();
+        return false;
+    }
+}
+
+bool USBSoundCard::sendTestPacket() {
+    // Create test audio data (sine wave pattern)
+    const U32 testDataSize = 256; // 128 samples * 2 bytes per sample
+    short testAudioData[128];
+    
+    // Generate a simple sine wave pattern
+    for (int i = 0; i < 128; i++) {
+        double frequency = 440.0; // A4 note
+        double sampleRate = 44100.0;
+        testAudioData[i] = (short)(32767.0 * sin(2.0 * M_PI * frequency * i / sampleRate));
+    }
+    
+    // Transmit test packet
+    bool success = transmitAudioPacket(testAudioData, testDataSize);
+    
+    if (success) {
+        printf("[USB_SOUND] Test packet transmitted successfully\n");
+    } else {
+        printf("[USB_SOUND] Failed to transmit test packet\n");
+    }
+    
+    return success;
 }
 
 } // namespace Components

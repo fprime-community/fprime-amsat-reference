@@ -29,27 +29,28 @@ else()
     if(PkgConfig_FOUND)
         pkg_check_modules(ALSA alsa)
         if(ALSA_FOUND)
-            target_link_libraries(${MODULE_NAME} ${ALSA_LIBRARIES})
+            target_link_libraries(${MODULE_NAME} PRIVATE ${ALSA_LIBRARIES})
             target_include_directories(${MODULE_NAME} PRIVATE ${ALSA_INCLUDE_DIRS})
             target_compile_options(${MODULE_NAME} PRIVATE ${ALSA_CFLAGS_OTHER})
         else()
             # Fallback to direct linking
-            target_link_libraries(${MODULE_NAME} asound)
+            target_link_libraries(${MODULE_NAME} PRIVATE asound)
         endif()
     else()
         # Fallback to direct linking
-        target_link_libraries(${MODULE_NAME} asound)
+        target_link_libraries(${MODULE_NAME} PRIVATE asound)
     endif()
 endif()
 
 ### Unit Tests ###
-# register_fprime_ut(
-#     AUTOCODER_INPUTS
-#         "${CMAKE_CURRENT_LIST_DIR}/USBSoundCard.fpp"
-#     SOURCES
-#         "${CMAKE_CURRENT_LIST_DIR}/test/ut/USBSoundCardTestMain.cpp"
-#         "${CMAKE_CURRENT_LIST_DIR}/test/ut/USBSoundCardTester.cpp"
-#     DEPENDS
-#         STest # For rules-based testing
-#     UT_AUTO_HELPERS
-# )
+register_fprime_ut(
+    AUTOCODER_INPUTS
+        "${CMAKE_CURRENT_LIST_DIR}/USBSoundCard.fpp"
+    SOURCES
+        "${CMAKE_CURRENT_LIST_DIR}/test/ut/unit/USBSoundCardTestMain.cpp"
+        "${CMAKE_CURRENT_LIST_DIR}/test/ut/unit/USBSoundCardTester.cpp"
+        "${CMAKE_CURRENT_LIST_DIR}/test/ut/unit/PacketReceiver.cpp"
+    DEPENDS
+        STest # For rules-based testing
+    UT_AUTO_HELPERS
+)

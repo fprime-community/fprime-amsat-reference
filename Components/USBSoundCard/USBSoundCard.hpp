@@ -46,6 +46,27 @@ PRIVATE:
                                U32 cmdSeq           //!< The command sequence number
                                ) override;
 
+  //! Handler implementation for START_TRANSMISSION command
+  //!
+  //! Start audio transmission as FPrime packets
+  void START_TRANSMISSION_cmdHandler(FwOpcodeType opCode, //!< The opcode
+                                     U32 cmdSeq           //!< The command sequence number
+                                     ) override;
+
+  //! Handler implementation for STOP_TRANSMISSION command
+  //!
+  //! Stop audio transmission
+  void STOP_TRANSMISSION_cmdHandler(FwOpcodeType opCode, //!< The opcode
+                                    U32 cmdSeq           //!< The command sequence number
+                                    ) override;
+
+  //! Handler implementation for SEND_TEST_PACKET command
+  //!
+  //! Send a test packet to verify transmission functionality
+  void SEND_TEST_PACKET_cmdHandler(FwOpcodeType opCode, //!< The opcode
+                                   U32 cmdSeq           //!< The command sequence number
+                                   ) override;
+
   // ----------------------------------------------------------------------
   // Handler implementations for input ports
   // ----------------------------------------------------------------------
@@ -65,6 +86,9 @@ PRIVATE:
   //! Audio capture state
   bool m_audioCapturing;
 
+  //! Audio transmission state
+  bool m_transmissionActive;
+
   //! ALSA PCM device handle
   snd_pcm_t* m_audioDevice;
 
@@ -76,6 +100,15 @@ PRIVATE:
 
   //! Frame counter for telemetry
   U32 m_framesProcessed;
+
+  //! Packet counter for telemetry
+  U32 m_packetsTransmitted;
+
+  //! Transmission packet buffer
+  Fw::Buffer m_transmissionBuffer;
+
+  //! Packet sequence number
+  U32 m_packetSequence;
 
   // ----------------------------------------------------------------------
   // Private helper methods
@@ -100,6 +133,21 @@ PRIVATE:
   //! \param frames Number of frames in buffer
   //! \return Audio level scaled 0-255
   U32 calculateAudioLevel(const short* buffer, int frames);
+
+  //! Format and transmit audio data as FPrime packet
+  //!
+  //! \param audioData Pointer to audio data
+  //! \param dataSize Size of audio data in bytes
+  //! \return true if transmission successful, false otherwise
+  bool transmitAudioPacket(const void* audioData, U32 dataSize);
+
+  //! Send a test packet to verify transmission functionality
+  //!
+  //! \return true if transmission successful, false otherwise
+  bool sendTestPacket();
+
+  //! Initialize transmission buffer
+  void initializeTransmissionBuffer();
 };
 
 } // namespace Components

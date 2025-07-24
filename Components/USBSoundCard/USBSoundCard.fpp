@@ -1,9 +1,9 @@
 module Components {
-    @ AMSat USB Sound Component - Basic Audio Capture
+    @ AMSat USB Sound Component - Audio Capture and Transmission
     active component USBSoundCard {
         
         # ===============================================
-        # BASIC COMMANDS - Minimal for audio capture
+        # BASIC COMMANDS - Audio capture and transmission
         # ===============================================
         
         @ Start audio capture
@@ -12,8 +12,17 @@ module Components {
         @ Stop audio capture  
         async command STOP_CAPTURE opcode 1
         
+        @ Start audio transmission
+        async command START_TRANSMISSION opcode 2
+        
+        @ Stop audio transmission
+        async command STOP_TRANSMISSION opcode 3
+        
+        @ Send test packet
+        async command SEND_TEST_PACKET opcode 4
+        
         # ===============================================
-        # BASIC TELEMETRY - Monitor audio health
+        # BASIC TELEMETRY - Monitor audio health and transmission
         # ===============================================
         
         @ Current audio input level (0-255)
@@ -27,6 +36,15 @@ module Components {
         
         @ Peak audio level in last second
         telemetry AUDIO_PEAK_LEVEL: U32
+        
+        @ Transmission status
+        telemetry TRANSMISSION_ACTIVE: bool
+        
+        @ Number of packets transmitted
+        telemetry PACKETS_TRANSMITTED: U32
+        
+        @ Last transmission timestamp (seconds)
+        telemetry LAST_TRANSMISSION_TIME: U32
         
         # ===============================================
         # BASIC EVENTS - Essential logging
@@ -47,12 +65,37 @@ module Components {
         @ Audio level too high
         event AUDIO_LEVEL_HIGH severity warning low id 4 format "Audio input level too high"
         
+        @ Audio transmission started
+        event AUDIO_TRANSMISSION_STARTED severity activity low id 5 format "Audio transmission started"
+        
+        @ Audio transmission stopped
+        event AUDIO_TRANSMISSION_STOPPED severity activity low id 6 format "Audio transmission stopped"
+        
+        @ Audio transmission already started
+        event AUDIO_TRANSMISSION_ALREADY_STARTED severity warning high id 7 format "Audio transmission already started"
+        
+        @ Packet transmitted successfully
+        event PACKET_TRANSMITTED severity activity low id 8 format "Packet transmitted successfully"
+        
+        @ Transmission error
+        event TRANSMISSION_ERROR severity warning high id 9 format "Transmission error occurred"
+        
         # ===============================================
         # SCHEDULED INPUT - For periodic audio processing
         # ===============================================
         
         @ Port for receiving periodic calls from rate group
         sync input port run: Svc.Sched
+        
+        # ===============================================
+        # OUTPUT PORTS - For sending FPrime packets
+        # ===============================================
+        
+        @ Port for sending FPrime packets
+        output port packetOut: Fw.Com
+        
+        @ Port for sending buffer packets
+        output port bufferOut: Fw.BufferSend
         
         ###############################################################################
         # Standard AC Ports: Required for Channels, Events, Commands, and Parameters  #
