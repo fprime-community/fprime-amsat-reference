@@ -10,6 +10,11 @@
 #include "Components/USBSoundCard/USBSoundCardComponentAc.hpp"
 
 #include <alsa/asoundlib.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 namespace Components {
 
@@ -26,6 +31,37 @@ public:
 
   //! Destroy USBSoundCard object
   ~USBSoundCard();
+
+  // ----------------------------------------------------------------------
+  // APRS telemetry methods
+  // ----------------------------------------------------------------------
+  
+  //! Send APRS latitude telemetry
+  void sendAprsLatitude(F32 latitude);
+  
+  //! Send APRS longitude telemetry
+  void sendAprsLongitude(F32 longitude);
+  
+  //! Send APRS battery voltage telemetry
+  void sendAprsBattery(F32 voltage);
+  
+  //! Send APRS temperature telemetry
+  void sendAprsTemperature(F32 temperature);
+  
+  //! Send APRS signal strength telemetry
+  void sendAprsSignalStrength(F32 strength);
+  
+  //! Log APRS packet received event
+  void logAprsPacketReceived(const char* callsign);
+  
+  //! Log APRS position update event
+  void logAprsPositionUpdate(F32 lat, F32 lon);
+  
+  //! Log APRS telemetry update event
+  void logAprsTelemetryUpdate(F32 battery, F32 temp);
+  
+  //! Log APRS parse error event
+  void logAprsParseError(const char* error);
 
 PRIVATE:
   // ----------------------------------------------------------------------
@@ -110,6 +146,11 @@ PRIVATE:
   //! Packet sequence number
   U32 m_packetSequence;
 
+  // APRS interface variables
+  int m_aprsListenSocket;           //!< TCP socket for APRS commands
+  bool m_aprsServerActive;          //!< APRS server status
+  U32 m_aprsPacketCount;            //!< Count of APRS packets received
+
   // ----------------------------------------------------------------------
   // Private helper methods
   // ----------------------------------------------------------------------
@@ -148,6 +189,15 @@ PRIVATE:
 
   //! Initialize transmission buffer
   void initializeTransmissionBuffer();
+
+  //! Initialize APRS TCP command server
+  void initializeAprsServer();
+  
+  //! Check for incoming APRS connections
+  void checkAprsConnections();
+  
+  //! Process received APRS command
+  void processAprsCommand(const char* command);
 };
 
 } // namespace Components

@@ -26,25 +26,47 @@ module Components {
         # ===============================================
         
         @ Current audio input level (0-255)
-        telemetry AUDIO_INPUT_LEVEL: U32
+        telemetry AUDIO_INPUT_LEVEL: U32 id 0x1001
         
         @ Audio device connection status
-        telemetry DEVICE_CONNECTED: bool
+        telemetry DEVICE_CONNECTED: bool id 0x1002
         
         @ Number of audio frames processed
-        telemetry FRAMES_PROCESSED: U32
+        telemetry FRAMES_PROCESSED: U32 id 0x1003
         
         @ Peak audio level in last second
-        telemetry AUDIO_PEAK_LEVEL: U32
+        telemetry AUDIO_PEAK_LEVEL: U32 id 0x1004
         
         @ Transmission status
-        telemetry TRANSMISSION_ACTIVE: bool
+        telemetry TRANSMISSION_ACTIVE: bool id 0x1005
         
         @ Number of packets transmitted
-        telemetry PACKETS_TRANSMITTED: U32
+        telemetry PACKETS_TRANSMITTED: U32 id 0x1006
         
         @ Last transmission timestamp (seconds)
-        telemetry LAST_TRANSMISSION_TIME: U32
+        telemetry LAST_TRANSMISSION_TIME: U32 id 0x1007
+        
+        # ===============================================
+        # APRS TELEMETRY - CubeSat telemetry from APRS packets
+        # ===============================================
+        
+        @ APRS Latitude in decimal degrees
+        telemetry APRS_LATITUDE: F32 id 0x01
+        
+        @ APRS Longitude in decimal degrees
+        telemetry APRS_LONGITUDE: F32 id 0x02
+        
+        @ APRS Battery voltage in volts
+        telemetry APRS_BATTERY: F32 id 0x03
+        
+        @ APRS Temperature in Celsius
+        telemetry APRS_TEMPERATURE: F32 id 0x04
+        
+        @ APRS packet count received
+        telemetry APRS_PACKET_COUNT: U32 id 0x05
+        
+        @ APRS signal strength (if available)
+        telemetry APRS_SIGNAL_STRENGTH: F32 id 0x06
         
         # ===============================================
         # BASIC EVENTS - Essential logging
@@ -79,6 +101,30 @@ module Components {
         
         @ Transmission error
         event TRANSMISSION_ERROR severity warning high id 9 format "Transmission error occurred"
+        
+        # ===============================================
+        # APRS EVENTS - CubeSat telemetry events
+        # ===============================================
+        
+        @ APRS packet received from CubeSat
+        event APRS_PACKET_RECEIVED(callsign: string size 16) \
+            severity activity low id 0x10 \
+            format "Received APRS packet from {}"
+        
+        @ APRS parsing error
+        event APRS_PARSE_ERROR(error: string size 64) \
+            severity warning high id 0x11 \
+            format "APRS parse error: {}"
+        
+        @ APRS position update
+        event APRS_POSITION_UPDATE(lat: F32, lon: F32) \
+            severity activity low id 0x12 \
+            format "APRS position update: LAT={.6f}, LON={.6f}"
+        
+        @ APRS telemetry update
+        event APRS_TELEMETRY_UPDATE(battery: F32, temp: F32) \
+            severity activity low id 0x13 \
+            format "APRS telemetry: BAT={.1f}V, TEMP={.1f}C"
         
         # ===============================================
         # SCHEDULED INPUT - For periodic audio processing

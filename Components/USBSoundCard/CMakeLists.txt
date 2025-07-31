@@ -18,28 +18,23 @@ register_fprime_module(
         "${CMAKE_CURRENT_LIST_DIR}/USBSoundCard.cpp"
 )
 
-# Handle ALSA library linking with fallback for cross-compilation
-if(CMAKE_CROSSCOMPILING)
-    # For cross-compilation, don't link ALSA due to GLIBC version issues
-    # ALSA functionality will be loaded dynamically on the Pi
-    message(STATUS "Cross-compiling: ALSA functionality stubbed out")
-else()
-    # For native compilation, try pkg-config first, fall back to direct linking
-    find_package(PkgConfig QUIET)
-    if(PkgConfig_FOUND)
-        pkg_check_modules(ALSA alsa)
-        if(ALSA_FOUND)
-            target_link_libraries(${MODULE_NAME} PRIVATE ${ALSA_LIBRARIES})
-            target_include_directories(${MODULE_NAME} PRIVATE ${ALSA_INCLUDE_DIRS})
-            target_compile_options(${MODULE_NAME} PRIVATE ${ALSA_CFLAGS_OTHER})
-        else()
-            # Fallback to direct linking
-            target_link_libraries(${MODULE_NAME} PRIVATE asound)
-        endif()
+find_package(PkgConfig QUIET)
+if(PkgConfig_FOUND)
+    pkg_check_modules(ALSA alsa)
+    if(ALSA_FOUND)
+        target_link_libraries(${MODULE_NAME} PRIVATE ${ALSA_LIBRARIES})
+        target_include_directories(${MODULE_NAME} PRIVATE ${ALSA_INCLUDE_DIRS})
+        target_compile_options(${MODULE_NAME} PRIVATE ${ALSA_CFLAGS_OTHER})
+        message(STATUS "Found ALSA via pkg-config")
     else()
         # Fallback to direct linking
         target_link_libraries(${MODULE_NAME} PRIVATE asound)
+        message(STATUS "Using direct ALSA linking")
     endif()
+else()
+    # Fallback to direct linking
+    target_link_libraries(${MODULE_NAME} PRIVATE asound)
+    message(STATUS "Using direct ALSA linking (no pkg-config)")
 endif()
 
 ### Unit Tests ###

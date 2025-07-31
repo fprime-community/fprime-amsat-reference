@@ -6,6 +6,11 @@
 
 #include "Components/USBSoundCard/USBSoundCard.hpp"
 #include <alsa/asoundlib.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <cmath>
 #include <cstring>
 
@@ -24,19 +29,31 @@ USBSoundCard::USBSoundCard(const char *const compName)
       m_bufferSize(1024),
       m_framesProcessed(0),
       m_packetsTransmitted(0),
-      m_packetSequence(0)
+      m_packetSequence(0),
+      m_aprsListenSocket(-1),
+      m_aprsServerActive(false),
+      m_aprsPacketCount(0)
 {
     // Initialize audio buffer
     m_audioBuffer = new short[m_bufferSize];
     
     // Initialize transmission buffer
     initializeTransmissionBuffer();
+    
+    // Initialize APRS server
+    initializeAprsServer();
 }
 
 USBSoundCard::~USBSoundCard() {
     if (m_audioCapturing) {
         stopAudioCapture();
     }
+    
+    // Clean up APRS server
+    if (m_aprsServerActive && m_aprsListenSocket >= 0) {
+        close(m_aprsListenSocket);
+    }
+    
     delete[] m_audioBuffer;
 }
 
@@ -118,6 +135,9 @@ void USBSoundCard::run_handler(FwIndexType portNum, U32 context) {
     if (m_audioCapturing) {
         processAudioData();
     }
+    
+    // Check for APRS connections
+    checkAprsConnections();
 }
 
 // ----------------------------------------------------------------------
@@ -370,6 +390,167 @@ bool USBSoundCard::sendTestPacket() {
     }
     
     return success;
+}
+
+// ----------------------------------------------------------------------
+// APRS Telemetry Methods
+// ----------------------------------------------------------------------
+
+void USBSoundCard::sendAprsLatitude(F32 latitude) {
+    this->tlmWrite_APRS_LATITUDE(latitude);
+    printf("[APRS] Latitude updated: %.6f degrees\n", latitude);
+}
+
+void USBSoundCard::sendAprsLongitude(F32 longitude) {
+    this->tlmWrite_APRS_LONGITUDE(longitude);
+    printf("[APRS] Longitude updated: %.6f degrees\n", longitude);
+}
+
+void USBSoundCard::sendAprsBattery(F32 voltage) {
+    this->tlmWrite_APRS_BATTERY(voltage);
+    printf("[APRS] Battery voltage updated: %.2f V\n", voltage);
+}
+
+void USBSoundCard::sendAprsTemperature(F32 temperature) {
+    this->tlmWrite_APRS_TEMPERATURE(temperature);
+    printf("[APRS] Temperature updated: %.1f C\n", temperature);
+}
+
+void USBSoundCard::sendAprsSignalStrength(F32 strength) {
+    this->tlmWrite_APRS_SIGNAL_STRENGTH(strength);
+    printf("[APRS] Signal strength updated: %.1f dBm\n", strength);
+}
+
+void USBSoundCard::logAprsPacketReceived(const char* callsign) {
+    m_aprsPacketCount++;
+    this->tlmWrite_APRS_PACKET_COUNT(m_aprsPacketCount);
+    
+    // Convert const char* to Fw::LogStringArg for F Prime logging
+    Fw::LogStringArg callsignArg(callsign);
+    this->log_ACTIVITY_LO_APRS_PACKET_RECEIVED(callsignArg);
+    printf("[APRS] Packet #%u received from %s\n", m_aprsPacketCount, callsign);
+}
+
+void USBSoundCard::logAprsPositionUpdate(F32 lat, F32 lon) {
+    this->log_ACTIVITY_LO_APRS_POSITION_UPDATE(lat, lon);
+    printf("[APRS] Position: LAT=%.6f, LON=%.6f\n", lat, lon);
+}
+
+void USBSoundCard::logAprsTelemetryUpdate(F32 battery, F32 temp) {
+    this->log_ACTIVITY_LO_APRS_TELEMETRY_UPDATE(battery, temp);
+    printf("[APRS] Telemetry: BAT=%.1fV, TEMP=%.1fC\n", battery, temp);
+}
+
+void USBSoundCard::logAprsParseError(const char* error) {
+    // Convert const char* to Fw::LogStringArg for F Prime logging
+    Fw::LogStringArg errorArg(error);
+    this->log_WARNING_HI_APRS_PARSE_ERROR(errorArg);
+    printf("[APRS] Parse error: %s\n", error);
+}
+
+// ----------------------------------------------------------------------
+// APRS Interface Methods
+// ----------------------------------------------------------------------
+
+void USBSoundCard::initializeAprsServer() {
+    m_aprsListenSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (m_aprsListenSocket < 0) {
+        printf("[APRS] Failed to create APRS server socket\n");
+        return;
+    }
+    
+    // Set socket to non-blocking
+    int flags = fcntl(m_aprsListenSocket, F_GETFL, 0);
+    fcntl(m_aprsListenSocket, F_SETFL, flags | O_NONBLOCK);
+    
+    // Allow address reuse
+    int opt = 1;
+    setsockopt(m_aprsListenSocket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+    
+    struct sockaddr_in address;
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons(8080);  // APRS command port
+    
+    if (bind(m_aprsListenSocket, (struct sockaddr*)&address, sizeof(address)) < 0) {
+        printf("[APRS] Failed to bind APRS server socket to port 8080\n");
+        close(m_aprsListenSocket);
+        return;
+    }
+    
+    if (listen(m_aprsListenSocket, 3) < 0) {
+        printf("[APRS] Failed to listen on APRS server socket\n");
+        close(m_aprsListenSocket);
+        return;
+    }
+    
+    m_aprsServerActive = true;
+    printf("[APRS] APRS command server listening on port 8080\n");
+}
+
+void USBSoundCard::checkAprsConnections() {
+    if (!m_aprsServerActive) {
+        return;
+    }
+    
+    struct sockaddr_in address;
+    socklen_t addrlen = sizeof(address);
+    
+    int clientSocket = accept(m_aprsListenSocket, (struct sockaddr*)&address, &addrlen);
+    if (clientSocket >= 0) {
+        printf("[APRS] APRS client connected from %s\n", inet_ntoa(address.sin_addr));
+        
+        // Read command from client
+        char buffer[1024];
+        int bytesRead = recv(clientSocket, buffer, sizeof(buffer) - 1, MSG_DONTWAIT);
+        
+        if (bytesRead > 0) {
+            buffer[bytesRead] = '\0';
+            processAprsCommand(buffer);
+        }
+        
+        close(clientSocket);
+    }
+}
+
+void USBSoundCard::processAprsCommand(const char* command) {
+    printf("[APRS] Received command: %s\n", command);
+    
+    // Parse APRS telemetry command format:
+    // "APRS_TLM LAT=42.123456 LON=-71.123456 BAT=12.6 TEMP=22.1 CALL=AMSAT-11"
+    
+    if (strncmp(command, "APRS_TLM", 8) == 0) {
+        F32 lat = 0, lon = 0, bat = 0, temp = 0;
+        char callsign[16] = {0};
+        
+        const char* latPtr = strstr(command, "LAT=");
+        const char* lonPtr = strstr(command, "LON=");
+        const char* batPtr = strstr(command, "BAT=");
+        const char* tempPtr = strstr(command, "TEMP=");
+        const char* callPtr = strstr(command, "CALL=");
+        
+        if (latPtr) lat = atof(latPtr + 4);
+        if (lonPtr) lon = atof(lonPtr + 4);
+        if (batPtr) bat = atof(batPtr + 4);
+        if (tempPtr) temp = atof(tempPtr + 5);
+        if (callPtr) {
+            sscanf(callPtr + 5, "%15s", callsign);
+        }
+        
+        // Send telemetry to F Prime
+        if (latPtr) sendAprsLatitude(lat);
+        if (lonPtr) sendAprsLongitude(lon);
+        if (batPtr) sendAprsBattery(bat);
+        if (tempPtr) sendAprsTemperature(temp);
+        
+        // Log events
+        if (callPtr) logAprsPacketReceived(callsign);
+        if (latPtr && lonPtr) logAprsPositionUpdate(lat, lon);
+        if (batPtr && tempPtr) logAprsTelemetryUpdate(bat, temp);
+        
+        printf("[APRS] Telemetry processed: LAT=%.6f, LON=%.6f, BAT=%.1f, TEMP=%.1f from %s\n",
+               lat, lon, bat, temp, callsign);
+    }
 }
 
 } // namespace Components
