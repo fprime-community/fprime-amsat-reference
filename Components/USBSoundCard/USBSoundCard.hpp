@@ -9,6 +9,11 @@
 
 #include "Components/USBSoundCard/USBSoundCardComponentAc.hpp"
 
+#ifdef ALSA_STUBBED
+// Forward declarations for stubbed ALSA
+struct _snd_pcm;
+typedef struct _snd_pcm snd_pcm_t;
+#else
 #include <alsa/asoundlib.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
