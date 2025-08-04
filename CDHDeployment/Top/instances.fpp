@@ -82,6 +82,11 @@ module CDHDeployment {
     stack size Default.STACK_SIZE \
     priority 96
 
+  instance usbSoundCard: Components.USBSoundCard base id 0x5000 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 95
+
   # ----------------------------------------------------------------------
   # Queued component instances
   # ----------------------------------------------------------------------
