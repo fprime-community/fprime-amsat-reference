@@ -1,0 +1,32 @@
+[2025-07-23 16:57:51,497] [INFO] root: Logging system initialized!
+[2025-07-23 16:57:51,497] [INFO] comm: Starting uplinker/downlinker connecting to FSW using ip with fprime
+[2025-07-23 16:57:51,498] [INFO] udp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:57:51,499] [INFO] transport: Incoming binding to: ipc:///tmp/fprime-server-in
+[2025-07-23 16:57:51,999] [INFO] transport: Outgoing binding to: ipc:///tmp/fprime-server-out
+[2025-07-23 16:57:58,178] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:57:59,179] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:01,182] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:02,183] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:04,185] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:05,186] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:07,189] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:08,190] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:10,192] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:11,194] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:13,195] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:14,196] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:41,452] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:42,453] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:44,456] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:45,457] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:47,459] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:48,460] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:50,463] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:51,464] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:53,466] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:54,468] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 16:58:56,470] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 16:58:57,471] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 17:02:02,717] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
+[2025-07-23 17:04:39,597] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
+[2025-07-23 17:05:13,056] [WARNING] tcp_handler: Failed to open socket at 127.0.0.1:50000, retrying: OSError: [Errno 22] Invalid argument

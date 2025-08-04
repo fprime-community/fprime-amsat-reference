@@ -1,0 +1,30 @@
+[2025-07-24 15:50:23,075] [INFO] root: Logging system initialized!
+[2025-07-24 15:50:23,085] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-24 15:50:23,086] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-24 15:50:29,497] [WARNING] distributor: Decoding error occurred: Channel 256 not found in dictionary. Skipping.
+[2025-07-24 15:50:29,497] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:29,798] [WARNING] distributor: Decoding error occurred: Channel 257 not found in dictionary. Skipping.
+[2025-07-24 15:50:29,798] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:30,098] [WARNING] distributor: Decoding error occurred: Channel 258 not found in dictionary. Skipping.
+[2025-07-24 15:50:30,098] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:30,399] [WARNING] distributor: Decoding error occurred: Channel 259 not found in dictionary. Skipping.
+[2025-07-24 15:50:30,399] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:30,699] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 15:50:40,403] [WARNING] distributor: Decoding error occurred: Channel 256 not found in dictionary. Skipping.
+[2025-07-24 15:50:40,403] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:40,704] [WARNING] distributor: Decoding error occurred: Channel 257 not found in dictionary. Skipping.
+[2025-07-24 15:50:40,704] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:41,005] [WARNING] distributor: Decoding error occurred: Channel 258 not found in dictionary. Skipping.
+[2025-07-24 15:50:41,005] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:41,305] [WARNING] distributor: Decoding error occurred: Channel 259 not found in dictionary. Skipping.
+[2025-07-24 15:50:41,305] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:50:41,606] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 15:51:04,860] [WARNING] distributor: Decoding error occurred: Channel 256 not found in dictionary. Skipping.
+[2025-07-24 15:51:04,860] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:51:05,161] [WARNING] distributor: Decoding error occurred: Channel 257 not found in dictionary. Skipping.
+[2025-07-24 15:51:05,161] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:51:05,461] [WARNING] distributor: Decoding error occurred: Channel 258 not found in dictionary. Skipping.
+[2025-07-24 15:51:05,461] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:51:05,762] [WARNING] distributor: Decoding error occurred: Channel 259 not found in dictionary. Skipping.
+[2025-07-24 15:51:05,762] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 15:51:06,063] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE

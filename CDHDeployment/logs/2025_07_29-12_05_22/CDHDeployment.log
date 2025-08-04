@@ -1,0 +1,444 @@
+[APRS] APRS command server listening on port 8080
+Hit Ctrl-C to quit
+EVENT: (3334) (2:1753815923,464800) WARNING_HI: (prmDb) PrmFileReadError : Parameter file read failed in stage OPEN (0) with record 0 and error 1
+EVENT: (1280) (2:1753815923,464843) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x500 registered to port 0 slot 0
+EVENT: (1280) (2:1753815923,464847) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x501 registered to port 0 slot 1
+EVENT: (1280) (2:1753815923,464849) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x502 registered to port 0 slot 2
+EVENT: (1280) (2:1753815923,464851) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x503 registered to port 0 slot 3
+EVENT: (1280) (2:1753815923,464853) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x600 registered to port 1 slot 4
+EVENT: (1280) (2:1753815923,464855) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x601 registered to port 1 slot 5
+EVENT: (1280) (2:1753815923,464856) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x602 registered to port 1 slot 6
+EVENT: (1280) (2:1753815923,464858) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x603 registered to port 1 slot 7
+EVENT: (1280) (2:1753815923,464860) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x604 registered to port 1 slot 8
+EVENT: (1280) (2:1753815923,464862) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x605 registered to port 1 slot 9
+EVENT: (1280) (2:1753815923,464864) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x606 registered to port 1 slot 10
+EVENT: (1280) (2:1753815923,464866) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x607 registered to port 1 slot 11
+EVENT: (1280) (2:1753815923,464868) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb00 registered to port 2 slot 12
+EVENT: (1280) (2:1753815923,464869) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb02 registered to port 2 slot 13
+EVENT: (1280) (2:1753815923,464871) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb03 registered to port 2 slot 14
+EVENT: (1280) (2:1753815923,464873) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x800 registered to port 3 slot 15
+EVENT: (1280) (2:1753815923,464875) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x801 registered to port 3 slot 16
+EVENT: (1280) (2:1753815923,464877) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x802 registered to port 3 slot 17
+EVENT: (1280) (2:1753815923,464879) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x900 registered to port 4 slot 18
+EVENT: (1280) (2:1753815923,464881) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x901 registered to port 4 slot 19
+EVENT: (1280) (2:1753815923,464882) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x902 registered to port 4 slot 20
+EVENT: (1280) (2:1753815923,464884) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x903 registered to port 4 slot 21
+EVENT: (1280) (2:1753815923,464886) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x904 registered to port 4 slot 22
+EVENT: (1280) (2:1753815923,464888) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x905 registered to port 4 slot 23
+EVENT: (1280) (2:1753815923,464890) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x906 registered to port 4 slot 24
+EVENT: (1280) (2:1753815923,464892) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2000 registered to port 5 slot 25
+EVENT: (1280) (2:1753815923,464894) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2001 registered to port 5 slot 26
+EVENT: (1280) (2:1753815923,464895) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2002 registered to port 5 slot 27
+EVENT: (1280) (2:1753815923,464897) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xd00 registered to port 6 slot 28
+EVENT: (1280) (2:1753815923,464899) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4a00 registered to port 7 slot 29
+EVENT: (1280) (2:1753815923,464901) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5000 registered to port 8 slot 30
+EVENT: (1280) (2:1753815923,464903) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5001 registered to port 8 slot 31
+EVENT: (1280) (2:1753815923,464905) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5002 registered to port 8 slot 32
+EVENT: (1280) (2:1753815923,464909) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5003 registered to port 8 slot 33
+EVENT: (1280) (2:1753815923,464911) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5004 registered to port 8 slot 34
+EVENT: (1280) (2:1753815923,464913) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4e00 registered to port 9 slot 35
+EVENT: (1280) (2:1753815923,464914) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4e01 registered to port 9 slot 36
+[WARNING] cmdDisp high task priority of 101 clamped to 99
+[WARNING] cmdSeq high task priority of 100 clamped to 99
+[WARNING] comQueue high task priority of 100 clamped to 99
+[WARNING] fileDownlink high task priority of 100 clamped to 99
+[WARNING] fileManager high task priority of 100 clamped to 99
+[WARNING] fileUplink high task priority of 100 clamped to 99
+[WARNING] rateGroup1 high task priority of 120 clamped to 99
+[WARNING] rateGroup2 high task priority of 119 clamped to 99
+EVENT: (512) (2:1753815923,465242) DIAGNOSTIC: (rateGroup1) RateGroupStarted : Rate group started.
+[WARNING] rateGroup3 high task priority of 118 clamped to 99
+EVENT: (768) (2:1753815923,465273) DIAGNOSTIC: (rateGroup2) RateGroupStarted : Rate group started.
+EVENT: (1024) (2:1753815923,465295) DIAGNOSTIC: (rateGroup3) RateGroupStarted : Rate group started.
+[WARNING] ReceiveTask high task priority of 100 clamped to 99
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023500 LON=-77.072333 BAT=4.3 TEMP=-305.1 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023499 degrees
+[APRS] Longitude updated: -77.072334 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -305.1 C
+EVENT: (20496) (2:1753815945,467840) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #1 received from AMSAT-11
+EVENT: (20498) (2:1753815945,467876) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023499, LON=-77.072334
+[APRS] Position: LAT=39.023499, LON=-77.072334
+EVENT: (20499) (2:1753815945,467884) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-305.1C
+[APRS] Telemetry: BAT=4.3V, TEMP=-305.1C
+[APRS] Telemetry processed: LAT=39.023499, LON=-77.072334, BAT=4.3, TEMP=-305.1 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023500 LON=-77.072333 BAT=4.3 TEMP=-285.0 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023499 degrees
+[APRS] Longitude updated: -77.072334 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -285.0 C
+EVENT: (20496) (2:1753815980,467723) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #2 received from AMSAT-11
+EVENT: (20498) (2:1753815980,467759) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023499, LON=-77.072334
+[APRS] Position: LAT=39.023499, LON=-77.072334
+EVENT: (20499) (2:1753815980,467765) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-285.0C
+[APRS] Telemetry: BAT=4.3V, TEMP=-285.0C
+[APRS] Telemetry processed: LAT=39.023499, LON=-77.072334, BAT=4.3, TEMP=-285.0 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023500 LON=-77.072000 BAT=4.3 TEMP=-303.1 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023499 degrees
+[APRS] Longitude updated: -77.071999 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -303.1 C
+EVENT: (20496) (2:1753816012,467167) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #3 received from AMSAT-11
+EVENT: (20498) (2:1753816012,467200) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023499, LON=-77.071999
+[APRS] Position: LAT=39.023499, LON=-77.071999
+EVENT: (20499) (2:1753816012,467205) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-303.1C
+[APRS] Telemetry: BAT=4.3V, TEMP=-303.1C
+[APRS] Telemetry processed: LAT=39.023499, LON=-77.071999, BAT=4.3, TEMP=-303.1 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023500 LON=-77.072000 BAT=4.3 TEMP=-259.4 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023499 degrees
+[APRS] Longitude updated: -77.071999 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -259.4 C
+EVENT: (20496) (2:1753816045,467251) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #4 received from AMSAT-11
+EVENT: (20498) (2:1753816045,467284) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023499, LON=-77.071999
+[APRS] Position: LAT=39.023499, LON=-77.071999
+EVENT: (20499) (2:1753816045,467289) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-259.4C
+[APRS] Telemetry: BAT=4.3V, TEMP=-259.4C
+[APRS] Telemetry processed: LAT=39.023499, LON=-77.071999, BAT=4.3, TEMP=-259.4 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023667 LON=-77.071833 BAT=4.3 TEMP=-240.7 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023666 degrees
+[APRS] Longitude updated: -77.071831 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -240.7 C
+EVENT: (20496) (2:1753816078,467108) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #5 received from AMSAT-11
+EVENT: (20498) (2:1753816078,467144) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023666, LON=-77.071831
+[APRS] Position: LAT=39.023666, LON=-77.071831
+EVENT: (20499) (2:1753816078,467148) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-240.7C
+[APRS] Telemetry: BAT=4.3V, TEMP=-240.7C
+[APRS] Telemetry processed: LAT=39.023666, LON=-77.071831, BAT=4.3, TEMP=-240.7 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.023667 LON=-77.071833 BAT=4.3 TEMP=-283.1 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023666 degrees
+[APRS] Longitude updated: -77.071831 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -283.1 C
+EVENT: (20496) (2:1753816114,466806) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #6 received from AMSAT-11
+EVENT: (20498) (2:1753816114,466841) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023666, LON=-77.071831
+[APRS] Position: LAT=39.023666, LON=-77.071831
+EVENT: (20499) (2:1753816114,466846) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-283.1C
+[APRS] Telemetry: BAT=4.3V, TEMP=-283.1C
+[APRS] Telemetry processed: LAT=39.023666, LON=-77.071831, BAT=4.3, TEMP=-283.1 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.024000 LON=-77.071833 BAT=4.3 TEMP=-282.2 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023998 degrees
+[APRS] Longitude updated: -77.071831 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -282.2 C
+EVENT: (20496) (2:1753816149,467377) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #7 received from AMSAT-11
+EVENT: (20498) (2:1753816149,467412) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023998, LON=-77.071831
+[APRS] Position: LAT=39.023998, LON=-77.071831
+EVENT: (20499) (2:1753816149,467417) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-282.2C
+[APRS] Telemetry: BAT=4.3V, TEMP=-282.2C
+[APRS] Telemetry processed: LAT=39.023998, LON=-77.071831, BAT=4.3, TEMP=-282.2 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.024000 LON=-77.071833 BAT=4.3 TEMP=-286.3 CALL=AMSAT-11
+[APRS] Latitude updated: 39.023998 degrees
+[APRS] Longitude updated: -77.071831 degrees
+[APRS] Battery voltage updated: 4.30 V
+[APRS] Temperature updated: -286.3 C
+EVENT: (20496) (2:1753816181,466810) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #8 received from AMSAT-11
+EVENT: (20498) (2:1753816181,466846) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.023998, LON=-77.071831
+[APRS] Position: LAT=39.023998, LON=-77.071831
+EVENT: (20499) (2:1753816181,466850) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.3V, TEMP=-286.3C
+[APRS] Telemetry: BAT=4.3V, TEMP=-286.3C
+[APRS] Telemetry processed: LAT=39.023998, LON=-77.071831, BAT=4.3, TEMP=-286.3 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+Exiting...

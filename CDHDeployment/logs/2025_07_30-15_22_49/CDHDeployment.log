@@ -1,0 +1,304 @@
+[APRS] APRS command server listening on port 8080
+Hit Ctrl-C to quit
+EVENT: (3334) (2:1753914170,334574) WARNING_HI: (prmDb) PrmFileReadError : Parameter file read failed in stage OPEN (0) with record 0 and error 1
+EVENT: (1280) (2:1753914170,334621) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x500 registered to port 0 slot 0
+EVENT: (1280) (2:1753914170,334625) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x501 registered to port 0 slot 1
+EVENT: (1280) (2:1753914170,334627) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x502 registered to port 0 slot 2
+EVENT: (1280) (2:1753914170,334629) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x503 registered to port 0 slot 3
+EVENT: (1280) (2:1753914170,334631) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x600 registered to port 1 slot 4
+EVENT: (1280) (2:1753914170,334633) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x601 registered to port 1 slot 5
+EVENT: (1280) (2:1753914170,334634) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x602 registered to port 1 slot 6
+EVENT: (1280) (2:1753914170,334636) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x603 registered to port 1 slot 7
+EVENT: (1280) (2:1753914170,334638) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x604 registered to port 1 slot 8
+EVENT: (1280) (2:1753914170,334640) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x605 registered to port 1 slot 9
+EVENT: (1280) (2:1753914170,334641) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x606 registered to port 1 slot 10
+EVENT: (1280) (2:1753914170,334643) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x607 registered to port 1 slot 11
+EVENT: (1280) (2:1753914170,334645) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb00 registered to port 2 slot 12
+EVENT: (1280) (2:1753914170,334647) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb02 registered to port 2 slot 13
+EVENT: (1280) (2:1753914170,334649) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xb03 registered to port 2 slot 14
+EVENT: (1280) (2:1753914170,334651) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x800 registered to port 3 slot 15
+EVENT: (1280) (2:1753914170,334652) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x801 registered to port 3 slot 16
+EVENT: (1280) (2:1753914170,334654) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x802 registered to port 3 slot 17
+EVENT: (1280) (2:1753914170,334656) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x900 registered to port 4 slot 18
+EVENT: (1280) (2:1753914170,334658) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x901 registered to port 4 slot 19
+EVENT: (1280) (2:1753914170,334659) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x902 registered to port 4 slot 20
+EVENT: (1280) (2:1753914170,334661) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x903 registered to port 4 slot 21
+EVENT: (1280) (2:1753914170,334663) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x904 registered to port 4 slot 22
+EVENT: (1280) (2:1753914170,334665) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x905 registered to port 4 slot 23
+EVENT: (1280) (2:1753914170,334667) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x906 registered to port 4 slot 24
+EVENT: (1280) (2:1753914170,334668) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2000 registered to port 5 slot 25
+EVENT: (1280) (2:1753914170,334670) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2001 registered to port 5 slot 26
+EVENT: (1280) (2:1753914170,334672) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x2002 registered to port 5 slot 27
+EVENT: (1280) (2:1753914170,334674) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0xd00 registered to port 6 slot 28
+EVENT: (1280) (2:1753914170,334676) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4a00 registered to port 7 slot 29
+EVENT: (1280) (2:1753914170,334678) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5000 registered to port 8 slot 30
+EVENT: (1280) (2:1753914170,334679) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5001 registered to port 8 slot 31
+EVENT: (1280) (2:1753914170,334681) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5002 registered to port 8 slot 32
+EVENT: (1280) (2:1753914170,334686) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5003 registered to port 8 slot 33
+EVENT: (1280) (2:1753914170,334688) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x5004 registered to port 8 slot 34
+EVENT: (1280) (2:1753914170,334689) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4e00 registered to port 9 slot 35
+EVENT: (1280) (2:1753914170,334691) DIAGNOSTIC: (cmdDisp) OpCodeRegistered : Opcode 0x4e01 registered to port 9 slot 36
+[WARNING] cmdDisp high task priority of 101 clamped to 99
+[WARNING] cmdSeq high task priority of 100 clamped to 99
+[WARNING] comQueue high task priority of 100 clamped to 99
+[WARNING] fileDownlink high task priority of 100 clamped to 99
+[WARNING] fileManager high task priority of 100 clamped to 99
+[WARNING] fileUplink high task priority of 100 clamped to 99
+[WARNING] rateGroup1 high task priority of 120 clamped to 99
+[WARNING] rateGroup2 high task priority of 119 clamped to 99
+EVENT: (512) (2:1753914170,335047) DIAGNOSTIC: (rateGroup1) RateGroupStarted : Rate group started.
+[WARNING] rateGroup3 high task priority of 118 clamped to 99
+EVENT: (768) (2:1753914170,335082) DIAGNOSTIC: (rateGroup2) RateGroupStarted : Rate group started.
+EVENT: (1024) (2:1753914170,335104) DIAGNOSTIC: (rateGroup3) RateGroupStarted : Rate group started.
+[WARNING] ReceiveTask high task priority of 100 clamped to 99
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[APRS] APRS client connected from 127.0.0.1
+[APRS] Received command: APRS_TLM LAT=39.025167 LON=-77.072000 BAT=4.4 TEMP=-189.3 CALL=AMSAT-11
+[APRS] Latitude updated: 39.025166 degrees
+[APRS] Longitude updated: -77.071999 degrees
+[APRS] Battery voltage updated: 4.40 V
+[APRS] Temperature updated: -189.3 C
+EVENT: (20496) (2:1753914376,337135) ACTIVITY_LO: (usbSoundCard) APRS_PACKET_RECEIVED : Received APRS packet from AMSAT-11
+[APRS] Packet #1 received from AMSAT-11
+EVENT: (20498) (2:1753914376,337183) ACTIVITY_LO: (usbSoundCard) APRS_POSITION_UPDATE : APRS position update: LAT=39.025166, LON=-77.071999
+[APRS] Position: LAT=39.025166, LON=-77.071999
+EVENT: (20499) (2:1753914376,337189) ACTIVITY_LO: (usbSoundCard) APRS_TELEMETRY_UPDATE : APRS telemetry: BAT=4.4V, TEMP=-189.3C
+[APRS] Telemetry: BAT=4.4V, TEMP=-189.3C
+[APRS] Telemetry processed: LAT=39.025166, LON=-77.071999, BAT=4.4, TEMP=-189.3 from AMSAT-11
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+[WARNING] Failed to listen on port 50000 with status -9
+Exiting...

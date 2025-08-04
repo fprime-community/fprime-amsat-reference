@@ -1,0 +1,94 @@
+[2025-07-28 19:12:23,872] [INFO] root: Logging system initialized!
+[2025-07-28 19:12:23,884] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-28 19:12:23,885] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-28 19:13:22,581] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:22,581] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:22,581] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:22,581] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:22,581] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:22,581] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:22,581] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:13:59,444] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:59,444] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:59,444] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:59,444] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:59,444] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:13:59,444] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:13:59,444] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:14:32,212] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:14:32,212] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:14:32,256] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:14:32,256] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:14:32,256] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:14:32,256] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:14:32,256] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:15:06,092] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:06,092] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:06,093] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:06,093] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:06,093] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:06,093] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:06,093] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:15:41,930] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:41,930] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:41,930] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:41,930] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:41,930] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:15:41,930] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:15:41,931] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:16:14,704] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:14,704] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:14,704] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:14,704] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:14,704] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:14,704] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:14,704] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:16:50,538] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:50,538] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:50,538] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:50,539] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:50,539] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:16:50,539] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:16:50,539] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:17:22,366] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:22,366] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:22,366] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:22,366] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:22,366] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:22,366] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:22,366] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:17:59,229] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:59,229] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:59,229] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:59,229] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:59,229] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:17:59,229] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:17:59,229] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:18:34,045] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:18:34,045] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:18:34,045] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:18:34,045] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:18:34,045] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:18:34,045] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:18:34,045] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:19:09,887] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:09,887] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:09,887] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:09,887] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:09,887] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:09,888] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:09,888] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:19:43,680] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:43,680] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:43,727] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:43,727] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:43,727] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:19:43,727] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:19:43,727] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-28 19:20:16,530] [WARNING] distributor: Decoding error occurred: Channel APRS_LATITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:20:16,530] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:20:16,530] [WARNING] distributor: Decoding error occurred: Channel APRS_LONGITUDE failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:20:16,530] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:20:16,530] [WARNING] distributor: Decoding error occurred: Channel APRS_BATTERY failed to decode: unpack_from requires a buffer of at least 19 bytes for unpacking 4 bytes at offset 15 (actual buffer size is 16). Skipping.
+[2025-07-28 19:20:16,530] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 19:20:16,530] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE

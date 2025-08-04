@@ -1,0 +1,22 @@
+[2025-07-24 15:05:28,017] [INFO] root: Logging system initialized!
+[2025-07-24 15:05:28,032] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-24 15:05:28,033] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-24 15:05:44,339] [WARNING] distributor: Decoding error occurred: Event 256 not found in dictionary. Skipping.
+[2025-07-24 15:05:44,339] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:05:44,339] [WARNING] distributor: Decoding error occurred: Event 257 not found in dictionary. Skipping.
+[2025-07-24 15:05:44,339] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:05:44,339] [WARNING] distributor: Decoding error occurred: Event 258 not found in dictionary. Skipping.
+[2025-07-24 15:05:44,339] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:05:44,340] [INFO] downlink: Received START packet with metadata:
+	Size: 2192455680
+	Source: (+Rec
+	Destination: ived APRS from AMSAT-11
+[2025-07-24 15:05:44,340] [WARNING] distributor: No decoder registered for: FW_PACKET_FILE
+[2025-07-24 15:06:04,339] [WARNING] downlink: Timeout while downlinking file, aborting
+[2025-07-24 15:06:18,112] [WARNING] distributor: Decoding error occurred: Event 256 not found in dictionary. Skipping.
+[2025-07-24 15:06:18,112] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:06:18,113] [WARNING] distributor: Decoding error occurred: Event 257 not found in dictionary. Skipping.
+[2025-07-24 15:06:18,113] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:06:18,113] [WARNING] distributor: Decoding error occurred: Event 258 not found in dictionary. Skipping.
+[2025-07-24 15:06:18,113] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 15:06:38,113] [WARNING] downlink: Timeout while downlinking file, aborting

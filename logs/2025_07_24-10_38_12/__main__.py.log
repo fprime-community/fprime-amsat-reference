@@ -1,0 +1,16 @@
+[2025-07-24 10:38:13,836] [INFO] root: Logging system initialized!
+[2025-07-24 10:38:13,850] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-24 10:38:13,850] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-24 10:40:22,664] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:40:59,528] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:41:33,320] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:42:06,194] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:42:40,039] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:43:14,782] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:43:33,447] [WARNING] distributor: No decoder registered for: FW_PACKET_COMMAND
+[2025-07-24 10:43:36,450] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 11). Skipping.
+[2025-07-24 10:43:36,450] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-24 10:43:39,453] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 11). Skipping.
+[2025-07-24 10:43:39,453] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-24 10:43:42,456] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:43:45,460] [WARNING] distributor: No decoder registered for: FW_PACKET_COMMAND

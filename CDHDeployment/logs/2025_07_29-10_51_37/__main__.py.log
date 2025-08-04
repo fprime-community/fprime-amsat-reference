@@ -1,0 +1,34 @@
+[2025-07-29 10:51:38,792] [INFO] root: Logging system initialized!
+[2025-07-29 10:51:38,804] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-29 10:51:38,805] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-29 10:52:35,041] [WARNING] distributor: Decoding error occurred: 20480 is not a valid TimeBase. Skipping.
+[2025-07-29 10:52:35,042] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-29 10:52:35,042] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:53:11,050] [WARNING] distributor: Decoding error occurred: 20480 is not a valid TimeBase. Skipping.
+[2025-07-29 10:53:11,050] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-29 10:53:11,050] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:53:46,890] [WARNING] distributor: Decoding error occurred: 20480 is not a valid TimeBase. Skipping.
+[2025-07-29 10:53:46,890] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-29 10:53:46,890] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:54:19,657] [WARNING] distributor: Decoding error occurred: 20480 is not a valid TimeBase. Skipping.
+[2025-07-29 10:54:19,657] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-29 10:54:19,705] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:54:54,468] [WARNING] distributor: Decoding error occurred: 20480 is not a valid TimeBase. Skipping.
+[2025-07-29 10:54:54,468] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-29 10:54:54,468] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:57:47,697] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:57:47,697] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:57:47,697] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:57:47,697] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:58:22,509] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:22,509] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:22,509] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:22,509] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:58:54,342] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:54,342] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:54,343] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:58:54,343] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-29 10:59:27,112] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:59:27,156] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:59:27,156] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-29 10:59:27,156] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE

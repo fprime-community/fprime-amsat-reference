@@ -1,0 +1,4 @@
+[2025-07-24 11:11:41,350] [INFO] root: Logging system initialized!
+[2025-07-24 11:11:41,364] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-24 11:11:41,365] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-24 11:12:11,334] [WARNING] downlink: Timeout while downlinking file, aborting

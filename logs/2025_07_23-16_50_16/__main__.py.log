@@ -1,0 +1,9 @@
+[2025-07-23 16:50:18,003] [INFO] root: Logging system initialized!
+[2025-07-23 16:50:18,011] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-23 16:50:18,011] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-23 16:50:25,989] [WARNING] distributor: No decoder registered for: FW_PACKET_COMMAND
+[2025-07-23 16:50:30,995] [WARNING] distributor: Decoding error occurred: Channel 4097 not found in dictionary. Skipping.
+[2025-07-23 16:50:30,998] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-23 16:50:36,000] [WARNING] distributor: Decoding error occurred: Event 4097 not found in dictionary. Skipping.
+[2025-07-23 16:50:36,000] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-23 16:51:01,006] [WARNING] downlink: Timeout while downlinking file, aborting

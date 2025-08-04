@@ -1,0 +1,7 @@
+[2025-07-28 17:59:33,058] [INFO] root: Logging system initialized!
+[2025-07-28 17:59:33,069] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-28 17:59:33,069] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-28 17:59:38,603] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 11 bytes for unpacking 4 bytes at offset 7 (actual buffer size is 8). Skipping.
+[2025-07-28 17:59:38,603] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-28 17:59:39,606] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 15 bytes for unpacking 4 bytes at offset 11 (actual buffer size is 12). Skipping.
+[2025-07-28 17:59:39,606] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM

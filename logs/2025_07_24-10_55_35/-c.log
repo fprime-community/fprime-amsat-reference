@@ -1,0 +1,10 @@
+[2025-07-24 10:55:35,563] [INFO] root: Logging system initialized!
+[2025-07-24 10:55:35,578] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-24 10:55:35,579] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-24 10:55:55,176] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:56:32,043] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:57:04,780] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:57:37,621] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:58:12,396] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 10:58:45,248] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-24 11:03:40,919] [WARNING] downlink: Timeout while downlinking file, aborting

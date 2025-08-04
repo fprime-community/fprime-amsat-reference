@@ -1,0 +1,60 @@
+[2025-07-23 16:57:55,422] [INFO] root: Logging system initialized!
+[2025-07-23 16:57:55,430] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
+[2025-07-23 16:57:55,431] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
+[2025-07-23 16:57:58,179] [WARNING] distributor: No decoder registered for: FW_PACKET_COMMAND
+[2025-07-23 16:58:01,183] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 6 bytes for unpacking 2 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:01,183] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-23 16:58:04,186] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 6 bytes for unpacking 2 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:04,186] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-23 16:58:07,189] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 5 bytes for unpacking 5 bytes at offset 0 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:07,189] [WARNING] distributor: No decoder registered for: FW_PACKET_FILE
+[2025-07-23 16:58:10,194] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 5 bytes for unpacking 1 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:10,194] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 16:58:13,196] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-23 16:58:41,452] [WARNING] distributor: No decoder registered for: FW_PACKET_COMMAND
+[2025-07-23 16:58:44,457] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 6 bytes for unpacking 2 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:44,457] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
+[2025-07-23 16:58:47,460] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 6 bytes for unpacking 2 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:47,460] [WARNING] distributor: No decoder registered for: FW_PACKET_LOG
+[2025-07-23 16:58:50,463] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 5 bytes for unpacking 5 bytes at offset 0 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:50,463] [WARNING] distributor: No decoder registered for: FW_PACKET_FILE
+[2025-07-23 16:58:53,467] [WARNING] distributor: Decoding error occurred: unpack_from requires a buffer of at least 5 bytes for unpacking 1 bytes at offset 4 (actual buffer size is 4). Skipping.
+[2025-07-23 16:58:53,468] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 16:58:56,470] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-23 17:02:29,618] [WARNING] distributor: Decoding error occurred: 256 is not a valid TimeBase. Skipping.
+[2025-07-23 17:02:29,618] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:02:29,619] [WARNING] distributor: Decoding error occurred: 257 is not a valid TimeBase. Skipping.
+[2025-07-23 17:02:29,619] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:02:29,619] [WARNING] distributor: Decoding error occurred: 258 is not a valid TimeBase. Skipping.
+[2025-07-23 17:02:29,619] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:02:29,619] [WARNING] distributor: Decoding error occurred: 259 is not a valid TimeBase. Skipping.
+[2025-07-23 17:02:29,619] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:02:29,619] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-23 17:03:01,284] [WARNING] distributor: No decoder registered for: FW_PACKET_HAND
+[2025-07-23 17:03:03,625] [WARNING] distributor: Decoding error occurred: 256 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:03,625] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:03,625] [WARNING] distributor: Decoding error occurred: 257 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:03,625] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:03,625] [WARNING] distributor: Decoding error occurred: 258 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:03,625] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:03,625] [WARNING] distributor: Decoding error occurred: 259 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:03,625] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:03,625] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-23 17:03:39,504] [WARNING] distributor: Decoding error occurred: 256 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:39,505] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:39,505] [WARNING] distributor: Decoding error occurred: 257 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:39,505] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:39,505] [WARNING] distributor: Decoding error occurred: 258 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:39,505] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:39,505] [WARNING] distributor: Decoding error occurred: 259 is not a valid TimeBase. Skipping.
+[2025-07-23 17:03:39,505] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:03:39,505] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
+[2025-07-23 17:04:12,528] [WARNING] distributor: Decoding error occurred: 256 is not a valid TimeBase. Skipping.
+[2025-07-23 17:04:12,528] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:04:12,528] [WARNING] distributor: Decoding error occurred: 257 is not a valid TimeBase. Skipping.
+[2025-07-23 17:04:12,528] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:04:12,528] [WARNING] distributor: Decoding error occurred: 258 is not a valid TimeBase. Skipping.
+[2025-07-23 17:04:12,528] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:04:12,528] [WARNING] distributor: Decoding error occurred: 259 is not a valid TimeBase. Skipping.
+[2025-07-23 17:04:12,528] [WARNING] distributor: No decoder registered for: FW_PACKET_PACKETIZED_TLM
+[2025-07-23 17:04:12,528] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE
