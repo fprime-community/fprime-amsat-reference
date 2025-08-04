@@ -1,8 +1,0 @@
-[2025-07-28 17:59:28,822] [INFO] root: Logging system initialized!
-[2025-07-28 17:59:28,822] [INFO] comm: Starting uplinker/downlinker connecting to FSW using ip with fprime
-[2025-07-28 17:59:28,823] [INFO] udp_handler: Server connected to 127.0.0.1:50000
-[2025-07-28 17:59:28,825] [INFO] transport: Incoming binding to: ipc:///tmp/fprime-server-in
-[2025-07-28 17:59:29,323] [INFO] transport: Outgoing binding to: ipc:///tmp/fprime-server-out
-[2025-07-28 17:59:38,603] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
-[2025-07-28 17:59:42,608] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
-[2025-07-28 18:08:45,852] [WARNING] tcp_handler: Failed to open socket at 127.0.0.1:50000, retrying: OSError: [Errno 22] Invalid argument

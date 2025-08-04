@@ -1,3 +1,0 @@
-[2025-07-30 16:03:31,997] [INFO] root: Logging system initialized!
-[2025-07-30 16:03:32,005] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
-[2025-07-30 16:03:32,006] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out

@@ -1,7 +1,0 @@
-[2025-07-29 11:37:41,924] [INFO] root: Logging system initialized!
-[2025-07-29 11:37:41,933] [INFO] transport: Outgoing connecting to: ipc:///tmp/fprime-server-in
-[2025-07-29 11:37:41,934] [INFO] transport: Incoming connecting to: ipc:///tmp/fprime-server-out
-[2025-07-29 11:38:20,599] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
-[2025-07-29 11:38:20,600] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
-[2025-07-29 11:38:20,600] [WARNING] distributor: No decoder registered for: FW_PACKET_TELEM
-[2025-07-29 11:38:20,600] [WARNING] distributor: No decoder registered for: FW_PACKET_IDLE

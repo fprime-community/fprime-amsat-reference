@@ -1,8 +1,0 @@
-[2025-07-29 10:51:37,708] [INFO] root: Logging system initialized!
-[2025-07-29 10:51:37,708] [INFO] comm: Starting uplinker/downlinker connecting to FSW using ip with fprime
-[2025-07-29 10:51:37,709] [INFO] udp_handler: Server connected to 127.0.0.1:50000
-[2025-07-29 10:51:37,710] [INFO] transport: Incoming binding to: ipc:///tmp/fprime-server-in
-[2025-07-29 10:51:38,210] [INFO] transport: Outgoing binding to: ipc:///tmp/fprime-server-out
-[2025-07-29 10:51:48,141] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
-[2025-07-29 10:55:20,142] [WARNING] tcp_handler: Read failure attempting reconnection. ConnectionResetError: [Errno 104] Connection reset by peer
-[2025-07-29 10:57:39,269] [INFO] tcp_handler: Server connected to 127.0.0.1:50000
