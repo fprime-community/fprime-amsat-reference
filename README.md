@@ -2,7 +2,7 @@
 
 <img width="300" alt="CubeSatSim v2" src="https://CubeSatSim.org/v2/cubesatsim%20v2%20complete.png">
 
-This Git Repo contains the F' reference repository for the AMSAT® CubeSat Simulator.
+This Git Repo contains the F' reference repository for the Command and Data Handling Raspberry PI Zero 2 Board for the AMSAT® CubeSat Simulator.
 
 ## F' Framework Overview
 F´ (F Prime) is an open-source, component-driven software framework developed by NASA’s Jet Propulsion Laboratory (JPL) for rapid development and deployment of embedded systems and spaceflight applications. It is designed to simplify the creation of flight-quality software, particularly for small-scale missions like CubeSats, SmallSats, instruments, and deployables, but it can be used for any embedded system.
@@ -13,16 +13,11 @@ The CubeSatSim(TM) is a low cost satellite emulator that runs on solar panels an
 ## AMSAT® CubeSat Simulator Hardware Block Diagram
 ![CubeSatSim Block Diagram](https://github.com/user-attachments/assets/a09086b9-2a05-4b4e-91a7-f8360718b6ce)
 
-## AMSAT® CubeSat Simulator Deployments
-There are two F' deployments for the AMSAT® CubeSat. 
-1. CDHDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
-2. MainDeployment - Executes on the Raspberry Pi Pico mounted on the AMSAT® CubeSat Main Board.
-
 ## Raspberry PI ARM Cross-Compiler
 Below is a link to the setup tutorial to install the Raspberry PI ARM Cross-Compiler:
 [F´ Cross-Compilation Setup Tutorial](https://fprime.jpl.nasa.gov/latest/docs/tutorials/cross-compilation/)
 
-## Getting Started  
+## Install F'   
 Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat Repo:
 1. Install the F' [system requirements](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#system-requirements).
 2. Install fprime-bootstrap `pip install fprime-bootstrap`
@@ -31,24 +26,20 @@ Below are the steps to install the F' Framework and clone the F' AMSAT® CubeSat
 5. . fprime-venv/bin/activate
 6. Follow these steps to [install the Arduino CLI](https://github.com/fprime-community/fprime-baremetal-reference/blob/main/docs/arduino-cli-install.md), which is needed for building the MainDeployment.
 
-## Building the AMSAT® CubeSat F' Executables
-The AMSAT® CubeSat constains two Raspberry PI's. A Raspberry PI Pico is mounted on the main processing board and interfaces with the Gyro's, Temperature, Pressure Sensors and the FM Transceiver Board. The Rasberry Pi Zero 2 interfaces with its own temperature sensor and processes the commands and telemetry and interfaces. The Raspberry PI camera is connected to the Rasberry Pi Zero 2. 
+## AMSAT® CubeSat Simulator Deployments
+There are two F' deployments for the AMSAT® CubeSat.
+1. CDHDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
+2. MainDeployment - Executes on the Raspberry Pi Pico mounted on the AMSAT® CubeSat Main Board.
 
-The Raspberry PI Pico and the Rasberry Pi Zero 2 execute two different Operating Systems (OS) environments. Thus, the build steps for each Raspberry PI are slightly different and use different libraries.  
+This Git Repo contains the source code, CMAKE build files, configuration files, etc for the Raspberry Pi Zero CDHDeployment only. For the Raspberry Pi Pico MainDeployment please reference the following Git Repo [TBD]. 
+
+## Building the AMSAT® CubeSat F' Command and Data Handling Raspberry PI Zero 2 Executable 
 
 ### Building CDHDeployment
 The CDHDeployment executes on the Rasberry Pi Zero 2 executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
 1. `cd CDHDeployment`
 2. `fprime-util generate aarch64-linux -f` (Note: -f will delete any existing previous aarch64-linux build)
 3. `fprime-util build aarch64-linux`
-
-### Building MainDeployment
-The MainDeployment executes on the Raspberry PI Pico. The Raspberry Pi Pico doesn't run a full operating system like Raspberry Pi Zero. Instead, it's typically programmed directly with code, similar to an Arduino. This assumes you have installed the Arduino CLI.
-
-1. cd MainDeployment
-2. fprime-util generate rpipico -f
-3. fprime-util build rpipico
-
 
 ## Loading and running the AMSAT® CubeSat F' Executables
 TBD
