@@ -31,12 +31,12 @@ There are two F' deployments for the AMSAT® CubeSat.
 1. CDHDeployment - Executes on the Raspberry Pi Zero that manages command and telemetry of the AMSAT® CubeSat. This board also manages the PI Camera.
 2. MainDeployment - Executes on the Raspberry Pi Pico mounted on the AMSAT® CubeSat Main Board.
 
-This Git Repo contains the source code, CMAKE build files, configuration files, etc for the Raspberry Pi Zero CDHDeployment only. For the Raspberry Pi Pico MainDeployment please reference the following Git Repo [TBD]. 
+This Git Repo contains the source code, CMAKE build files, configuration files, etc for the Raspberry Pi Zero CDHDeployment only. For the Raspberry Pi Pico MainDeployment please reference the following Git Repo [https://github.com/fprime-community/fprime-amsat-main-board-reference]. 
 
 ## Building the AMSAT® CubeSat F' Command and Data Handling Raspberry PI Zero 2 Executable 
 
 ### Building CDHDeployment
-The CDHDeployment executes on the Rasberry Pi Zero 2 executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
+The CDHDeployment executes on the Raspberry Pi Zero 2 executing Linux OS. In order to properly build, the Raspberry PI ARM Cross-Compiler must be installed on the development computer:
 1. `cd CDHDeployment`
 2. `fprime-util generate aarch64-linux -f` (Note: -f will delete any existing previous aarch64-linux build)
 3. `fprime-util build aarch64-linux`
