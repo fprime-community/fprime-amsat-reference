@@ -123,7 +123,7 @@ void configureTopology(const TopologyState& state) {
     configurationTable.entries[Ports_ComPacketQueue::EVENTS].depth = 100;
     configurationTable.entries[Ports_ComPacketQueue::EVENTS].priority = 0;
     // Telemetry
-    configurationTable.entries[Ports_ComPacketQueue::TELEMETRY].depth = 500;
+    configurationTable.entries[Ports_ComPacketQueue::TELEMETRY].depth = 1000;
     configurationTable.entries[Ports_ComPacketQueue::TELEMETRY].priority = 2;
     // File Downlink (first entry after the ComPacket queues = NUM_CONSTANTS)
     configurationTable.entries[Ports_ComPacketQueue::NUM_CONSTANTS].depth = 100;
