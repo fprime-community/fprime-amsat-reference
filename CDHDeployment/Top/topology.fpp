@@ -5,9 +5,9 @@ module CDHDeployment {
   # ----------------------------------------------------------------------
 
   enum Ports_RateGroups {
-    rateGroup1
-    rateGroup2
-    rateGroup3
+    rateGroup1Hz
+    rateGroupHalfHz
+    rateGroupQuarterHz
   }
   enum Ports_ComPacketQueue {
     EVENTS,
@@ -43,9 +43,9 @@ module CDHDeployment {
     instance framer
     instance chronoTime
     instance prmDb
-    instance rateGroup1
-    instance rateGroup2
-    instance rateGroup3
+    instance rateGroup1Hz
+    instance rateGroupHalfHz
+    instance rateGroupQuarterHz
     instance rateGroupDriver
     instance textLogger
     instance systemResources
@@ -117,21 +117,21 @@ module CDHDeployment {
       # LinuxTimer to drive rate group
       linuxTimer.CycleOut -> rateGroupDriver.CycleIn
 
-      # Rate group 1
-      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup1] -> rateGroup1.CycleIn
-      rateGroup1.RateGroupMemberOut[0] -> tlmSend.Run
-      rateGroup1.RateGroupMemberOut[1] -> fileDownlink.Run
-      rateGroup1.RateGroupMemberOut[2] -> systemResources.run
-      rateGroup1.RateGroupMemberOut[3] -> comQueue.run
+      # 1Hz rate group
+      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup1Hz] -> rateGroup1Hz.CycleIn
+      rateGroup1Hz.RateGroupMemberOut[0] -> tlmSend.Run
+      rateGroup1Hz.RateGroupMemberOut[1] -> fileDownlink.Run
+      rateGroup1Hz.RateGroupMemberOut[2] -> systemResources.run
+      rateGroup1Hz.RateGroupMemberOut[3] -> comQueue.run
 
-      # Rate group 2
-      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup2] -> rateGroup2.CycleIn
-      rateGroup2.RateGroupMemberOut[0] -> cmdSeq.schedIn
+      # 0.5Hz rate group
+      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroupHalfHz] -> rateGroupHalfHz.CycleIn
+      rateGroupHalfHz.RateGroupMemberOut[0] -> cmdSeq.schedIn
 
-      # Rate group 3
-      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup3] -> rateGroup3.CycleIn
-      rateGroup3.RateGroupMemberOut[0] -> $health.Run
-      rateGroup3.RateGroupMemberOut[1] -> bufferManager.schedIn
+      # 0.25Hz rate group
+      rateGroupDriver.CycleOut[Ports_RateGroups.rateGroupQuarterHz] -> rateGroupQuarterHz.CycleIn
+      rateGroupQuarterHz.RateGroupMemberOut[0] -> $health.Run
+      rateGroupQuarterHz.RateGroupMemberOut[1] -> bufferManager.schedIn
     }
 
     connections Sequencer {

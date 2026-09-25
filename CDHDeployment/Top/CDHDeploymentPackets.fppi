@@ -2,9 +2,9 @@ telemetry packets CDHDeploymentPackets {
 
   packet CDH id 1 group 1 {
     CDHDeployment.cmdDisp.CommandsDispatched
-    CDHDeployment.rateGroup1.RgMaxTime
-    CDHDeployment.rateGroup2.RgMaxTime
-    CDHDeployment.rateGroup3.RgMaxTime
+    CDHDeployment.rateGroup1Hz.RgMaxTime
+    CDHDeployment.rateGroupHalfHz.RgMaxTime
+    CDHDeployment.rateGroupQuarterHz.RgMaxTime
     CDHDeployment.cmdSeq.CS_LoadCommands
     CDHDeployment.cmdSeq.CS_CancelCommands
     CDHDeployment.cmdSeq.CS_CommandsExecuted
@@ -24,9 +24,9 @@ telemetry packets CDHDeploymentPackets {
   }
 
   packet CDHErrors id 2 group 1 {
-    CDHDeployment.rateGroup1.RgCycleSlips
-    CDHDeployment.rateGroup2.RgCycleSlips
-    CDHDeployment.rateGroup3.RgCycleSlips
+    CDHDeployment.rateGroup1Hz.RgCycleSlips
+    CDHDeployment.rateGroupHalfHz.RgCycleSlips
+    CDHDeployment.rateGroupQuarterHz.RgCycleSlips
     CDHDeployment.cmdSeq.CS_Errors
     CDHDeployment.fileUplink.Warnings
     CDHDeployment.fileDownlink.Warnings

@@ -33,9 +33,9 @@ Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {2, 0}, {4, 0}}};
 
 // Rate groups may supply a context token to each of the attached children whose purpose is set by the project. The
 // reference topology sets each token to zero as these contexts are unused in this project.
-U32 rateGroup1Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup2Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup3Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup1HzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+U32 rateGroupHalfHzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+U32 rateGroupQuarterHzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
 
 // A number of constants are needed for construction of the topology. These are specified here.
 enum TopologyConstants {
@@ -68,9 +68,9 @@ Svc::Health::PingEntry pingEntries[] = {
     {PingEntries::CDHDeployment_fileManager::WARN, PingEntries::CDHDeployment_fileManager::FATAL, "fileManager"},
     {PingEntries::CDHDeployment_fileUplink::WARN, PingEntries::CDHDeployment_fileUplink::FATAL, "fileUplink"},
     {PingEntries::CDHDeployment_prmDb::WARN, PingEntries::CDHDeployment_prmDb::FATAL, "prmDb"},
-    {PingEntries::CDHDeployment_rateGroup1::WARN, PingEntries::CDHDeployment_rateGroup1::FATAL, "rateGroup1"},
-    {PingEntries::CDHDeployment_rateGroup2::WARN, PingEntries::CDHDeployment_rateGroup2::FATAL, "rateGroup2"},
-    {PingEntries::CDHDeployment_rateGroup3::WARN, PingEntries::CDHDeployment_rateGroup3::FATAL, "rateGroup3"},
+    {PingEntries::CDHDeployment_rateGroup1Hz::WARN, PingEntries::CDHDeployment_rateGroup1Hz::FATAL, "rateGroup1Hz"},
+    {PingEntries::CDHDeployment_rateGroupHalfHz::WARN, PingEntries::CDHDeployment_rateGroupHalfHz::FATAL, "rateGroupHalfHz"},
+    {PingEntries::CDHDeployment_rateGroupQuarterHz::WARN, PingEntries::CDHDeployment_rateGroupQuarterHz::FATAL, "rateGroupQuarterHz"},
     {PingEntries::CDHDeployment_tlmSend::WARN, PingEntries::CDHDeployment_tlmSend::FATAL, "tlmSend"},
 };
 
@@ -103,9 +103,9 @@ void configureTopology(const TopologyState& state) {
     rateGroupDriver.configure(rateGroupDivisorsSet);
 
     // Rate groups require context arrays.
-    rateGroup1.configure(rateGroup1Context, FW_NUM_ARRAY_ELEMENTS(rateGroup1Context));
-    rateGroup2.configure(rateGroup2Context, FW_NUM_ARRAY_ELEMENTS(rateGroup2Context));
-    rateGroup3.configure(rateGroup3Context, FW_NUM_ARRAY_ELEMENTS(rateGroup3Context));
+    rateGroup1Hz.configure(rateGroup1HzContext, FW_NUM_ARRAY_ELEMENTS(rateGroup1HzContext));
+    rateGroupHalfHz.configure(rateGroupHalfHzContext, FW_NUM_ARRAY_ELEMENTS(rateGroupHalfHzContext));
+    rateGroupQuarterHz.configure(rateGroupQuarterHzContext, FW_NUM_ARRAY_ELEMENTS(rateGroupQuarterHzContext));
 
     // File downlink requires some project-derived properties.
     fileDownlink.configure(FILE_DOWNLINK_TIMEOUT, FILE_DOWNLINK_COOLDOWN, FILE_DOWNLINK_CYCLE_TIME,
