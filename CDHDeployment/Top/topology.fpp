@@ -51,6 +51,7 @@ module CDHDeployment {
     instance systemResources
     instance version
     instance linuxTimer
+    instance camera
 
     # ----------------------------------------------------------------------
     # Pattern graph specifiers

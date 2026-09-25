@@ -57,8 +57,10 @@ enum TopologyConstants {
 };
 
 // Ping entries are autocoded, however; this code is not properly exported. Thus, it is copied here.
+// Entries must be in the order of the health component's PingSend ports, which the autocoder assigns alphabetically by
+// instance name.
 Svc::Health::PingEntry pingEntries[] = {
-    {PingEntries::CDHDeployment_tlmSend::WARN, PingEntries::CDHDeployment_tlmSend::FATAL, "chanTlm"},
+    {PingEntries::CDHDeployment_camera::WARN, PingEntries::CDHDeployment_camera::FATAL, "camera"},
     {PingEntries::CDHDeployment_cmdDisp::WARN, PingEntries::CDHDeployment_cmdDisp::FATAL, "cmdDisp"},
     {PingEntries::CDHDeployment_cmdSeq::WARN, PingEntries::CDHDeployment_cmdSeq::FATAL, "cmdSeq"},
     {PingEntries::CDHDeployment_eventLogger::WARN, PingEntries::CDHDeployment_eventLogger::FATAL, "eventLogger"},
@@ -69,6 +71,7 @@ Svc::Health::PingEntry pingEntries[] = {
     {PingEntries::CDHDeployment_rateGroup1::WARN, PingEntries::CDHDeployment_rateGroup1::FATAL, "rateGroup1"},
     {PingEntries::CDHDeployment_rateGroup2::WARN, PingEntries::CDHDeployment_rateGroup2::FATAL, "rateGroup2"},
     {PingEntries::CDHDeployment_rateGroup3::WARN, PingEntries::CDHDeployment_rateGroup3::FATAL, "rateGroup3"},
+    {PingEntries::CDHDeployment_tlmSend::WARN, PingEntries::CDHDeployment_tlmSend::FATAL, "tlmSend"},
 };
 
 /**
@@ -111,6 +114,9 @@ void configureTopology(const TopologyState& state) {
     // Parameter database is configured with a database file name, and that file must be initially read.
     prmDb.configure("PrmDb.dat");
     prmDb.readParamFile();
+
+    // Camera images are written to a directory relative to the working directory, like the parameter database
+    camera.configure("images");
 
     // Health is supplied a set of ping entires.
     health.setPingEntries(pingEntries, FW_NUM_ARRAY_ELEMENTS(pingEntries), HEALTH_WATCHDOG_CODE);

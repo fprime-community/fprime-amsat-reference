@@ -82,6 +82,12 @@ module CDHDeployment {
     stack size Default.STACK_SIZE \
     priority 96
 
+  @ Raspberry Pi camera. Captures run rpicam-still and block this component for about a second.
+  instance camera: PiCamera.CameraManager base id 0x0E00 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 90
+
   # ----------------------------------------------------------------------
   # Queued component instances
   # ----------------------------------------------------------------------

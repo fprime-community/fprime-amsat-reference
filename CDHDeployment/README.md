@@ -20,17 +20,19 @@ The following command starts the F' GDS, runs the application binary, and connec
 
 ```
 cd CDHDeployment
-fprime-gds --framing-selection fprime
+fprime-gds --framing-selection fprime --ip-client
 ```
 
 > [!NOTE]
-> CDHDeployment uses F' framing. Newer versions of the F' GDS default to CCSDS framing, so pass `--framing-selection fprime` on every `fprime-gds` command.
+> Pass both options on every `fprime-gds` command:
+> - `--framing-selection fprime`: CDHDeployment uses F' framing, and newer versions of the F' GDS default to CCSDS framing.
+> - `--ip-client`: CDHDeployment listens for the GDS as a TCP server (`Drv.TcpServer`), so the GDS must connect as a client.
 
 To run the ground system without starting the application:
 
 ```
 cd CDHDeployment
-fprime-gds --no-app --framing-selection fprime
+fprime-gds --no-app --framing-selection fprime --ip-client
 ```
 
 The application binary may then be run independently from the `bin` directory, starting from the project root:
@@ -39,3 +41,14 @@ The application binary may then be run independently from the `bin` directory, s
 cd build-artifacts/<platform>/CDHDeployment/bin/
 ./CDHDeployment -a 127.0.0.1 -p 50000
 ```
+
+## Pi Camera
+
+The `camera` instance (`PiCamera.CameraManager`, see [its design document](../Components/PiCamera/Components/CameraManager/docs/sdd.md)) captures still images by running `rpicam-still`. The camera must be enabled on the Pi; `rpicam-hello --list-cameras` should list it.
+
+| Command | Description |
+|---|---|
+| `CDHDeployment.camera.CHECK_CAMERA` | Report whether a camera is connected |
+| `CDHDeployment.camera.TAKE_PICTURE` | Capture a JPEG to `images/img_<seconds>_<count>.jpg`, relative to the application's working directory |
+
+Image size and capture delay are set with the `IMAGE_WIDTH`, `IMAGE_HEIGHT` (default 320 × 256), and `CAPTURE_DELAY_MS` (default 1000) parameters. To downlink an image, send `CDHDeployment.fileDownlink.SendFile` with the path from the `PictureTaken` event.

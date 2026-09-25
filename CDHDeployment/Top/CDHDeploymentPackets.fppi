@@ -134,6 +134,12 @@ telemetry packets CDHDeploymentPackets {
     CDHDeployment.version.CustomVersion10
   }
 
+  packet Camera id 22 group 1 {
+    CDHDeployment.camera.PicturesTaken
+    CDHDeployment.camera.CaptureFailures
+    CDHDeployment.camera.LastImageSize
+  }
+
 } omit {
   CDHDeployment.cmdDisp.CommandErrors
 }

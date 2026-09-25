@@ -46,6 +46,9 @@ struct TopologyState {
  * ```
  */
 namespace PingEntries {
+namespace CDHDeployment_camera {
+enum { WARN = 3, FATAL = 5 };
+}
 namespace CDHDeployment_blockDrv {
 enum { WARN = 3, FATAL = 5 };
 }

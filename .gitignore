@@ -1,3 +1,5 @@
 build-artifacts
 build-fprime-*
 fprime-venv
+logs
+images
