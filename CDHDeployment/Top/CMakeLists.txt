@@ -17,5 +17,5 @@ register_fprime_module(
     SOURCES
         "${CMAKE_CURRENT_LIST_DIR}/CDHDeploymentTopology.cpp"
     DEPENDS
-        Drv_TcpServer
+        Components_AmsatDrv_TcpServer
 )
