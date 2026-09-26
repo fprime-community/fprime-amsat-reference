@@ -5,23 +5,42 @@
 #     CDHDeployment/test/int/run-integration-tests.sh [extra pytest arguments]
 #
 # The application runs in a scratch directory, which is kept for debugging when a test fails.
+#
+# To test a deployment that is already running, such as on the Pi Zero 2, set CDH_TARGET=host:port and optionally
+# CDH_DICTIONARY. The GDS then connects to it instead of starting the application, and tests that need the fake camera
+# are skipped.
 set -euo pipefail
 
 TEST_DIR=$(cd "$(dirname "$0")" && pwd)
 PROJECT_ROOT=$(cd "$TEST_DIR/../../.." && pwd)
 ARTIFACTS="$PROJECT_ROOT/build-artifacts/$(uname -s)/CDHDeployment"
-DICTIONARY="$ARTIFACTS/dict/CDHDeploymentTopologyDictionary.json"
+DICTIONARY="${CDH_DICTIONARY:-$ARTIFACTS/dict/CDHDeploymentTopologyDictionary.json}"
 APP="$ARTIFACTS/bin/CDHDeployment"
+TARGET="${CDH_TARGET:-}"
 
-if [[ ! -f "$DICTIONARY" || ! -x "$APP" ]]; then
+if [[ -n "$TARGET" ]]; then
+    if [[ ! -f "$DICTIONARY" ]]; then
+        echo "Dictionary $DICTIONARY not found. Set CDH_DICTIONARY to the running deployment's dictionary." >&2
+        exit 1
+    fi
+elif [[ ! -f "$DICTIONARY" || ! -x "$APP" ]]; then
     echo "CDHDeployment native build not found in $ARTIFACTS." >&2
     echo "Build it first: cd CDHDeployment && fprime-util generate && fprime-util build" >&2
     exit 1
 fi
 
 WORK_DIR=$(mktemp -d "${TMPDIR:-/tmp}/cdh-int-XXXXXX")
-# A fresh port for each run: the application's TCP server cannot reuse a port still in TIME_WAIT from a previous run
-PORT="${CDH_TEST_PORT:-$(python -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')}"
+if [[ -n "$TARGET" ]]; then
+    ADDRESS=${TARGET%:*}
+    PORT=${TARGET##*:}
+    APP_ARGS=(--no-app)
+else
+    ADDRESS=127.0.0.1
+    # A fresh port for each run: the application's TCP server cannot reuse a port still in TIME_WAIT from a previous run
+    PORT="${CDH_TEST_PORT:-$(python -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')}"
+    APP_ARGS=(--deployment "$ARTIFACTS" --app "$APP")
+    export CDH_APP_DIR="$WORK_DIR"
+fi
 GDS_PID=""
 
 # Job control starts the GDS in its own process group without ignoring SIGINT, as background jobs otherwise do in
@@ -45,14 +64,14 @@ trap stop_gds EXIT
 
 cd "$WORK_DIR"
 PATH="$TEST_DIR/fake-camera:$PATH" fprime-gds --gui none \
-    --deployment "$ARTIFACTS" --dictionary "$DICTIONARY" --app "$APP" \
-    --framing-selection fprime --ip-client --ip-address 127.0.0.1 --ip-port "$PORT" \
+    "${APP_ARGS[@]}" --dictionary "$DICTIONARY" \
+    --framing-selection fprime --ip-client --ip-address "$ADDRESS" --ip-port "$PORT" \
     --logs "$WORK_DIR/logs" --file-storage-directory "$WORK_DIR/files" \
     > "$WORK_DIR/gds.out" 2>&1 &
 GDS_PID=$!
 
 status=0
-CDH_APP_DIR="$WORK_DIR" python -m pytest "$TEST_DIR" \
+python -m pytest "$TEST_DIR" \
     --dictionary "$DICTIONARY" --file-storage-directory "$WORK_DIR/files" --logs "$WORK_DIR/pytest-logs" \
     "$@" || status=$?
 

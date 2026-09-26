@@ -63,5 +63,8 @@ Run these from the project root in the project virtual environment. [CI](../.git
 | Unit | `AmsatDrv::TcpServer`, the GDS link, including its shutdown fixes | `cd Components/AmsatDrv/TcpServer && fprime-util generate --ut && fprime-util check` |
 | Host | Health ping table order, ID range, rate group names, and clean exit on SIGTERM, checked against the native build | `python -m pytest CDHDeployment/test/host` |
 | Integration | The running deployment through the GDS: commands, each rate group, health pings, and the camera including image downlink | `CDHDeployment/test/int/run-integration-tests.sh` |
+| Deploy script | `scripts/deploy-fsw.sh` against stubbed `systemctl`/`sudo` and a scratch Pi home: release layout, service, stock services, preflight errors, Pico detection. Needs the `aarch64-linux` build. | `scripts/test/test-deploy-fsw.sh` |
+
+To run the integration tests against a deployment that is already running, such as on the Pi, set `CDH_TARGET=host:port` (and `CDH_DICTIONARY` if needed); tests that need the fake camera are skipped. `scripts/deploy-fsw.sh --verify` does this after loading.
 
 The host and integration tests need a native build first (`cd CDHDeployment && fprime-util generate && fprime-util build`). `run-integration-tests.sh` runs the deployment with the stand-in camera commands in [test/int/fake-camera](test/int/fake-camera), so no camera is needed. It takes about 2 minutes, and extra arguments are passed to pytest (for example `-v` or `-k camera`).
