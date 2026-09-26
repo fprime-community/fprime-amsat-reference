@@ -277,8 +277,8 @@ WorkingDirectory=$BASE/data
 User=$(id -un)
 Restart=on-failure
 RestartSec=5
-# CDHDeployment does not exit on SIGTERM while its TCP server waits for a GDS connection (the receive thread stays in
-# accept()), so do not wait the default 90 s before killing it
+# CDHDeployment exits within a few seconds of SIGTERM. If it ever does not, kill it after 10 s rather than the
+# default 90 s, so a redeploy is not held up
 TimeoutStopSec=10
 
 [Install]

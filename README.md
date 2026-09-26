@@ -90,4 +90,4 @@ fprime-gds -n --dictionary build-artifacts/aarch64-linux/CDHDeployment/dict/CDHD
 ```
 
 > [!NOTE]
-> CDHDeployment does not exit on SIGTERM while it is waiting for a GDS connection, because its TCP server's receive thread stays blocked in `accept()`. The service sets `TimeoutStopSec=10`, so `systemctl stop` kills it after 10 s instead of the default 90 s.
+> `systemctl stop fprime-cdh` sends SIGTERM, and CDHDeployment exits within a few seconds whether or not a GDS is connected (see [AmsatDrv::TcpServer](Components/AmsatDrv/TcpServer/docs/sdd.md)). As a safeguard, the service sets `TimeoutStopSec=10`, so systemd kills it after 10 s instead of the default 90 s if it ever does not exit.
