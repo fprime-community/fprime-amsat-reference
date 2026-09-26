@@ -54,5 +54,40 @@ Substitute `arm-hf-linux` for `aarch64-linux` if the Pi runs a 32-bit OS. The ex
 
 To build and run on the development computer instead (no Pi required), see [CDHDeployment/README.md](CDHDeployment/README.md).
 
-## Loading and Running the CDHDeployment
-TBD
+## Loading Flight Software onto an Assembled CubeSatSim
+[scripts/deploy-fsw.sh](scripts/deploy-fsw.sh) loads both deployments from your development computer after they are built:
+- **CDHDeployment** onto the Pi Zero 2, over the network with SSH
+- **MainSensorBoardDeployment** onto the Pico W, over a USB cable from your computer to the Pico W. The Pi Zero cannot program the Pico W, because only a UART connects them.
+
+### First-time setup
+1. Check out [fprime-amsat-main-board-reference](https://github.com/fprime-community/fprime-amsat-main-board-reference) next to this repo, and build it (see its README).
+2. Give your computer SSH key access to the Pi. The Pi's user needs `sudo`, which the default `pi` user has:
+   ```
+   ssh-copy-id pi@cubesatsim.local
+   ```
+3. Build CDHDeployment for `aarch64-linux` with a cross-compiler whose glibc is no newer than the Pi's. The Arm GNU Toolchain 10.2 (`aarch64-none-linux-gnu`) works with every current Raspberry Pi OS. Newer distribution cross-compilers, such as Ubuntu 24.04's, produce binaries that Raspberry Pi OS Bookworm cannot run. The script checks this before copying.
+
+### Loading
+```
+scripts/deploy-fsw.sh                      # load both boards
+scripts/deploy-fsw.sh --build --verify     # build both, load both, then test both through the GDS
+scripts/deploy-fsw.sh --only pi            # or --only pico
+scripts/deploy-fsw.sh --dry-run            # run the checks and show what would change
+scripts/deploy-fsw.sh --pi pi@192.168.1.50 --pico-port /dev/ttyACM1
+```
+The Pico W is found automatically by its USB name. If its firmware isn't running, the script asks you to hold BOOTSEL and reconnect it. Run `scripts/deploy-fsw.sh --help` for all options.
+
+### What changes on the Pi
+- Each load creates a release in `~/fprime/releases/`, and `~/fprime/current` points to the newest. The newest 3 releases are kept.
+- The `fprime-cdh` systemd service runs `current/CDHDeployment -a 0.0.0.0 -p 50000` from `~/fprime/data`, where camera images and `PrmDb.dat` persist between releases.
+- On the first load, the stock CubeSatSim services that use the UART, radio, audio, or camera (`cubesatsim`, `transmit`, `command`, `pacsatsim`, `frequency`) are stopped and masked. The push button and OliveTin web UI keep running. `scripts/deploy-fsw.sh --restore-stock` stops F' and brings the stock services back.
+- To roll back, on the Pi: `cd ~/fprime && ln -sfn releases/<older release> current && sudo systemctl restart fprime-cdh`
+
+### Connecting the GDS
+```
+fprime-gds -n --dictionary build-artifacts/aarch64-linux/CDHDeployment/dict/CDHDeploymentTopologyDictionary.json \
+    --framing-selection fprime --ip-client --ip-address cubesatsim.local --ip-port 50000
+```
+
+> [!NOTE]
+> CDHDeployment does not exit on SIGTERM while it is waiting for a GDS connection, because its TCP server's receive thread stays blocked in `accept()`. The service sets `TimeoutStopSec=10`, so `systemctl stop` kills it after 10 s instead of the default 90 s.

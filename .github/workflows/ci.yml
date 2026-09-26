@@ -48,7 +48,7 @@ jobs:
           path: ${{ runner.temp }}/cdh-int-*
 
   cross-compile:
-    name: Cross-compile for the Pi Zero 2 (aarch64)
+    name: Cross-compile for the Pi Zero 2 (aarch64) and test the deploy script
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -72,3 +72,9 @@ jobs:
         run: |
           fprime-util generate aarch64-linux
           fprime-util build aarch64-linux -j4
+
+      - name: Deploy script tests
+        run: |
+          pip install shellcheck-py
+          shellcheck scripts/deploy-fsw.sh scripts/test/test-deploy-fsw.sh CDHDeployment/test/int/run-integration-tests.sh
+          scripts/test/test-deploy-fsw.sh
