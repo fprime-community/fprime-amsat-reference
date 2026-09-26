@@ -186,7 +186,8 @@ void teardownTopology(const TopologyState& state) {
     freeThreads(state);
 
     // Other task clean-up.
-    comDriver.stop();
+    // terminate() also wakes the read task if it is waiting for a GDS connection
+    comDriver.terminate();
     (void)comDriver.join();
 
     // Resource deallocation

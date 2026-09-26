@@ -60,7 +60,8 @@ Run these from the project root in the project virtual environment. [CI](../.git
 | Tests | What they cover | Command |
 |---|---|---|
 | Unit | `PiCamera::CameraManager` with fake camera commands | `cd Components/PiCamera/Components/CameraManager && fprime-util generate --ut && fprime-util check` |
-| Host | Health ping table order, ID range, and rate group names, checked against the native build | `python -m pytest CDHDeployment/test/host` |
+| Unit | `AmsatDrv::TcpServer`, the GDS link, including its shutdown fixes | `cd Components/AmsatDrv/TcpServer && fprime-util generate --ut && fprime-util check` |
+| Host | Health ping table order, ID range, rate group names, and clean exit on SIGTERM, checked against the native build | `python -m pytest CDHDeployment/test/host` |
 | Integration | The running deployment through the GDS: commands, each rate group, health pings, and the camera including image downlink | `CDHDeployment/test/int/run-integration-tests.sh` |
 
 The host and integration tests need a native build first (`cd CDHDeployment && fprime-util generate && fprime-util build`). `run-integration-tests.sh` runs the deployment with the stand-in camera commands in [test/int/fake-camera](test/int/fake-camera), so no camera is needed. It takes about 2 minutes, and extra arguments are passed to pytest (for example `-v` or `-k camera`).
