@@ -46,6 +46,9 @@ struct TopologyState {
  * ```
  */
 namespace PingEntries {
+namespace CDHDeployment_camera {
+enum { WARN = 3, FATAL = 5 };
+}
 namespace CDHDeployment_blockDrv {
 enum { WARN = 3, FATAL = 5 };
 }
@@ -73,13 +76,13 @@ enum { WARN = 3, FATAL = 5 };
 namespace CDHDeployment_prmDb {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CDHDeployment_rateGroup1 {
+namespace CDHDeployment_rateGroup1Hz {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CDHDeployment_rateGroup2 {
+namespace CDHDeployment_rateGroupHalfHz {
 enum { WARN = 3, FATAL = 5 };
 }
-namespace CDHDeployment_rateGroup3 {
+namespace CDHDeployment_rateGroupQuarterHz {
 enum { WARN = 3, FATAL = 5 };
 }
 }  // namespace PingEntries

@@ -13,17 +13,17 @@ module CDHDeployment {
   # Active component instances
   # ----------------------------------------------------------------------
 
-  instance rateGroup1: Svc.ActiveRateGroup base id 0x0200 \
+  instance rateGroup1Hz: Svc.ActiveRateGroup base id 0x0200 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 120
 
-  instance rateGroup2: Svc.ActiveRateGroup base id 0x0300 \
+  instance rateGroupHalfHz: Svc.ActiveRateGroup base id 0x0300 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 119
 
-  instance rateGroup3: Svc.ActiveRateGroup base id 0x0400 \
+  instance rateGroupQuarterHz: Svc.ActiveRateGroup base id 0x0400 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 118
@@ -81,6 +81,12 @@ module CDHDeployment {
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 96
+
+  @ Raspberry Pi camera. Captures run rpicam-still and block this component for about a second.
+  instance camera: PiCamera.CameraManager base id 0x0E00 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 90
 
   # ----------------------------------------------------------------------
   # Queued component instances
