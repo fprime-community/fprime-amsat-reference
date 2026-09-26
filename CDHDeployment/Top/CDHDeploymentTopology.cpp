@@ -33,23 +33,24 @@ Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {2, 0}, {4, 0}}};
 
 // Rate groups may supply a context token to each of the attached children whose purpose is set by the project. The
 // reference topology sets each token to zero as these contexts are unused in this project.
-U32 rateGroup1HzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroupHalfHzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroupQuarterHzContext[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+Svc::ActiveRateGroup::ContextArray rateGroup1HzContext(0);
+Svc::ActiveRateGroup::ContextArray rateGroupHalfHzContext(0);
+Svc::ActiveRateGroup::ContextArray rateGroupQuarterHzContext(0);
 
 // A number of constants are needed for construction of the topology. These are specified here.
 enum TopologyConstants {
     CMD_SEQ_BUFFER_SIZE = 5 * 1024,
-    FILE_DOWNLINK_TIMEOUT = 1000,
     FILE_DOWNLINK_COOLDOWN = 1000,
     FILE_DOWNLINK_CYCLE_TIME = 1000,
     FILE_DOWNLINK_FILE_QUEUE_DEPTH = 10,
     HEALTH_WATCHDOG_CODE = 0x123,
     COMM_PRIORITY = 100,
-    // bufferManager constants
-    FRAMER_BUFFER_SIZE = FW_MAX(FW_COM_BUFFER_MAX_SIZE, FW_FILE_BUFFER_MAX_SIZE) + Svc::FprimeProtocol::FrameHeader::SERIALIZED_SIZE + Svc::FprimeProtocol::FrameTrailer::SERIALIZED_SIZE,
+    // bufferManager constants. FW_COM_BUFFER_MAX_SIZE and FW_FILE_BUFFER_MAX_SIZE are separate FPP constant enums, so
+    // compare them as sizes.
+    MAX_BUFFER_SIZE = FW_MAX(static_cast<FwSizeType>(FW_COM_BUFFER_MAX_SIZE), static_cast<FwSizeType>(FW_FILE_BUFFER_MAX_SIZE)),
+    FRAMER_BUFFER_SIZE = MAX_BUFFER_SIZE + Svc::FprimeProtocol::FrameHeader::SERIALIZED_SIZE + Svc::FprimeProtocol::FrameTrailer::SERIALIZED_SIZE,
     FRAMER_BUFFER_COUNT = 30,
-    DEFRAMER_BUFFER_SIZE = FW_MAX(FW_COM_BUFFER_MAX_SIZE, FW_FILE_BUFFER_MAX_SIZE),
+    DEFRAMER_BUFFER_SIZE = MAX_BUFFER_SIZE,
     DEFRAMER_BUFFER_COUNT = 30,
     COM_DRIVER_BUFFER_SIZE = 3000,
     COM_DRIVER_BUFFER_COUNT = 30,
@@ -103,13 +104,12 @@ void configureTopology(const TopologyState& state) {
     rateGroupDriver.configure(rateGroupDivisorsSet);
 
     // Rate groups require context arrays.
-    rateGroup1Hz.configure(rateGroup1HzContext, FW_NUM_ARRAY_ELEMENTS(rateGroup1HzContext));
-    rateGroupHalfHz.configure(rateGroupHalfHzContext, FW_NUM_ARRAY_ELEMENTS(rateGroupHalfHzContext));
-    rateGroupQuarterHz.configure(rateGroupQuarterHzContext, FW_NUM_ARRAY_ELEMENTS(rateGroupQuarterHzContext));
+    rateGroup1Hz.configure(rateGroup1HzContext);
+    rateGroupHalfHz.configure(rateGroupHalfHzContext);
+    rateGroupQuarterHz.configure(rateGroupQuarterHzContext);
 
     // File downlink requires some project-derived properties.
-    fileDownlink.configure(FILE_DOWNLINK_TIMEOUT, FILE_DOWNLINK_COOLDOWN, FILE_DOWNLINK_CYCLE_TIME,
-                           FILE_DOWNLINK_FILE_QUEUE_DEPTH);
+    fileDownlink.configure(FILE_DOWNLINK_COOLDOWN, FILE_DOWNLINK_CYCLE_TIME, FILE_DOWNLINK_FILE_QUEUE_DEPTH);
 
     // Parameter database is configured with a database file name, and that file must be initially read.
     prmDb.configure("PrmDb.dat");
@@ -173,7 +173,7 @@ Os::Mutex cycleLock;
 volatile bool cycleFlag = true;
 
 void startSimulatedCycle(Fw::TimeInterval interval) {
-    linuxTimer.startTimer(interval.getSeconds()*1000+interval.getUSeconds()/1000);
+    linuxTimer.startTimer(interval);
 }
 
 void stopSimulatedCycle() {
@@ -185,13 +185,17 @@ void teardownTopology(const TopologyState& state) {
     stopTasks(state);
     freeThreads(state);
 
-    // Other task clean-up.
-    // terminate() also wakes the read task if it is waiting for a GDS connection
+    // Other task clean-up. terminate() stops the read and reconnect tasks and closes the listening socket, waking a
+    // task waiting for a GDS connection.
     comDriver.terminate();
     (void)comDriver.join();
 
     // Resource deallocation
     cmdSeq.deallocateBuffer(mallocator);
     bufferManager.cleanup();
+
+    // Autocoded component teardown. Functions provided by topology autocoder.
+    tearDownComponents(state);
+    deinitComponents(state);
 }
 };  // namespace CDHDeployment

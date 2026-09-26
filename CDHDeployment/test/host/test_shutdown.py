@@ -86,3 +86,30 @@ def test_sigterm_exits_cleanly(app, tmp_path, gds):
         if proc.poll() is None:
             proc.kill()
             proc.wait()
+
+
+def test_gds_disconnects_do_not_kill_the_application(app, tmp_path):
+    """A GDS connecting and immediately disconnecting, repeatedly, leaves the application running
+
+    F' sends telemetry on the TCP socket without MSG_NOSIGNAL, so a send racing the GDS disconnect raises SIGPIPE.
+    Main.cpp ignores SIGPIPE; without that, this killed the application within a few connections.
+    """
+    port = free_port()
+    proc = subprocess.Popen(
+        [str(app), "-a", "127.0.0.1", "-p", str(port)],
+        cwd=tmp_path,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    )
+    try:
+        for attempt in range(6):
+            connect(port).close()
+            time.sleep(1.5)
+            assert proc.poll() is None, f"application exited with {proc.returncode} after disconnect {attempt + 1}"
+        proc.send_signal(signal.SIGTERM)
+        assert proc.wait(timeout=EXIT_LIMIT_S) == 0
+    finally:
+        if proc.poll() is None:
+            proc.kill()
+            proc.wait()

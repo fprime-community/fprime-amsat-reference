@@ -8,7 +8,8 @@
 
 #include "Fw/Types/MallocAllocator.hpp"
 #include "CDHDeployment/Top/FppConstantsAc.hpp"
-#include "Svc/FramingProtocol/FprimeProtocol.hpp"
+#include "Svc/FprimeProtocol/FrameHeaderSerializableAc.hpp"
+#include "Svc/FprimeProtocol/FrameTrailerSerializableAc.hpp"
 #include "Svc/Health/Health.hpp"
 
 // Definitions are placed within a namespace named after the deployment

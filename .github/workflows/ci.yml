@@ -26,10 +26,6 @@ jobs:
           fprime-util generate --ut
           fprime-util check -j4
 
-      - name: TcpServer unit tests
-        working-directory: Components/AmsatDrv/TcpServer
-        run: fprime-util check -j4
-
       - name: Build CDHDeployment
         working-directory: CDHDeployment
         run: |

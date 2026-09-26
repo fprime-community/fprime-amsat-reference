@@ -88,6 +88,8 @@ CameraManagerTester ::CameraManagerTester()
 }
 
 CameraManagerTester ::~CameraManagerTester() {
+    // Frees the component's message queue
+    this->component.deinit();
     const std::string command = "rm -rf '" + this->m_scratchDirectory + "'";
     if (this->m_scratchDirectory.rfind("/tmp/CameraManagerUt_", 0) == 0) {
         (void)system(command.c_str());

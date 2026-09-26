@@ -17,5 +17,6 @@ register_fprime_module(
     SOURCES
         "${CMAKE_CURRENT_LIST_DIR}/CDHDeploymentTopology.cpp"
     DEPENDS
-        Components_AmsatDrv_TcpServer
+        Drv_TcpServer
+        Svc_TlmPacketizer_config_TlmPacketizerConfig  # Supports packet autocoding without TlmPacketizer
 )

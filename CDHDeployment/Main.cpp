@@ -11,7 +11,8 @@
 #include <signal.h>
 // Used for command line argument processing
 #include <getopt.h>
-// Used for printf functions
+// Used for printf and atoi
+#include <cstdio>
 #include <cstdlib>
 
 /**
@@ -82,6 +83,10 @@ int main(int argc, char* argv[]) {
     // Setup program shutdown via Ctrl-C
     signal(SIGINT, signalHandler);
     signal(SIGTERM, signalHandler);
+    // F' sends on TCP sockets without MSG_NOSIGNAL. If the GDS disconnects between telemetry sends, the next send
+    // raises SIGPIPE, which would terminate the application. Ignore it so the send fails with EPIPE and the socket
+    // read task closes the connection instead.
+    signal(SIGPIPE, SIG_IGN);
     (void)printf("Hit Ctrl-C to quit\n");
 
     // Setup, cycle, and teardown topology

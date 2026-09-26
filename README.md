@@ -29,7 +29,7 @@ This Git Repo contains the source code, CMake build files, and configuration fil
 
 ## Install F'
 Below are the steps to install the F' Framework and clone this repo:
-1. Install the F' [system requirements](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#system-requirements).
+1. Install the F' [system requirements](https://fprime.jpl.nasa.gov/latest/docs/getting-started/installing-fprime/#system-requirements), including Python 3.10 or newer. This project uses F' v4.3.0.
 2. Install fprime-bootstrap: `pip install fprime-bootstrap`
 3. Clone the project: `fprime-bootstrap clone https://github.com/fprime-community/fprime-amsat-reference.git`
 4. `cd fprime-amsat-reference`
@@ -90,4 +90,4 @@ fprime-gds -n --dictionary build-artifacts/aarch64-linux/CDHDeployment/dict/CDHD
 ```
 
 > [!NOTE]
-> `systemctl stop fprime-cdh` sends SIGTERM, and CDHDeployment exits within a few seconds whether or not a GDS is connected (see [AmsatDrv::TcpServer](Components/AmsatDrv/TcpServer/docs/sdd.md)). As a safeguard, the service sets `TimeoutStopSec=10`, so systemd kills it after 10 s instead of the default 90 s if it ever does not exit.
+> `systemctl stop fprime-cdh` sends SIGTERM, and CDHDeployment exits within a few seconds whether or not a GDS is connected (F' v4.3's `Drv.TcpServer` stops its reconnect task and wakes a pending `accept()`). `Main.cpp` also ignores SIGPIPE, so a GDS disconnecting mid-send can't terminate the application. As a safeguard, the service sets `TimeoutStopSec=10`, so systemd kills it after 10 s instead of the default 90 s if it ever does not exit.

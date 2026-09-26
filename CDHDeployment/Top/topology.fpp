@@ -17,7 +17,7 @@ module CDHDeployment {
     FILE_DOWNLINK
   }
 
-  topology CDHDeployment {
+  deployment topology CDHDeployment {
 
     # ----------------------------------------------------------------------
     # Instances used in the topology
@@ -105,7 +105,6 @@ module CDHDeployment {
 
       # ComStub <-> ComDriver
       comStub.drvSendOut      -> comDriver.$send
-      comDriver.sendReturnOut -> comStub.drvSendReturnIn
       comDriver.ready         -> comStub.drvConnected
     }
 
@@ -123,15 +122,18 @@ module CDHDeployment {
       rateGroup1Hz.RateGroupMemberOut[1] -> fileDownlink.Run
       rateGroup1Hz.RateGroupMemberOut[2] -> systemResources.run
       rateGroup1Hz.RateGroupMemberOut[3] -> comQueue.run
+      rateGroup1Hz.RateGroupMemberOut[4] -> cmdDisp.run
 
       # 0.5Hz rate group
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroupHalfHz] -> rateGroupHalfHz.CycleIn
       rateGroupHalfHz.RateGroupMemberOut[0] -> cmdSeq.schedIn
+      rateGroupHalfHz.RateGroupMemberOut[1] -> fileManager.schedIn
 
       # 0.25Hz rate group
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroupQuarterHz] -> rateGroupQuarterHz.CycleIn
       rateGroupQuarterHz.RateGroupMemberOut[0] -> $health.Run
       rateGroupQuarterHz.RateGroupMemberOut[1] -> bufferManager.schedIn
+      rateGroupQuarterHz.RateGroupMemberOut[2] -> eventLogger.run
     }
 
     connections Sequencer {
@@ -158,9 +160,6 @@ module CDHDeployment {
       # Deframer <-> Router
       deframer.dataOut           -> fprimeRouter.dataIn
       fprimeRouter.dataReturnOut -> deframer.dataReturnIn
-      # Router buffer allocations
-      fprimeRouter.bufferAllocate   -> bufferManager.bufferGetCallee
-      fprimeRouter.bufferDeallocate -> bufferManager.bufferSendIn
       # Router <-> CmdDispatcher/FileUplink
       fprimeRouter.commandOut  -> cmdDisp.seqCmdBuff
       cmdDisp.seqCmdStatus     -> fprimeRouter.cmdResponseIn
