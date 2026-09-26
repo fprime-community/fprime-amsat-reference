@@ -30,41 +30,50 @@ elif [[ ! -f "$DICTIONARY" || ! -x "$APP" ]]; then
 fi
 
 WORK_DIR=$(mktemp -d "${TMPDIR:-/tmp}/cdh-int-XXXXXX")
+APP_PID=""
+GDS_PID=""
+
+# Job control starts background processes in their own process groups without ignoring SIGINT, as background jobs
+# otherwise do in scripts, so they can be stopped cleanly
+set -m
+
 if [[ -n "$TARGET" ]]; then
     ADDRESS=${TARGET%:*}
     PORT=${TARGET##*:}
-    APP_ARGS=(--no-app)
 else
     ADDRESS=127.0.0.1
-    # A fresh port for each run: the application's TCP server cannot reuse a port still in TIME_WAIT from a previous run
+    # A fresh port for each run, so runs never contend for a port
     PORT="${CDH_TEST_PORT:-$(python -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')}"
-    APP_ARGS=(--deployment "$ARTIFACTS" --app "$APP")
+    # Start the application here rather than through the GDS, which runs it from its bin directory. Its images/ and
+    # PrmDb.dat then go to the scratch directory, and the fake camera commands are on its PATH.
     export CDH_APP_DIR="$WORK_DIR"
+    (cd "$WORK_DIR" && PATH="$TEST_DIR/fake-camera:$PATH" exec "$APP" -a "$ADDRESS" -p "$PORT") \
+        > "$WORK_DIR/app.log" 2>&1 &
+    APP_PID=$!
 fi
-GDS_PID=""
 
-# Job control starts the GDS in its own process group without ignoring SIGINT, as background jobs otherwise do in
-# scripts, so it can be stopped cleanly
-set -m
-
-stop_gds() {
-    if [[ -n "$GDS_PID" ]] && kill -0 "$GDS_PID" 2>/dev/null; then
-        # SIGINT lets the GDS shut down cleanly and stop the application, releasing its port
-        kill -INT "$GDS_PID"
+# Stop a background process with a signal, then its whole process group if it has not exited within 10 s
+stop_process() {
+    local pid=$1 signal=$2
+    if [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null; then
+        kill "-$signal" "$pid"
         for _ in $(seq 20); do
-            kill -0 "$GDS_PID" 2>/dev/null || break
+            kill -0 "$pid" 2>/dev/null || break
             sleep 0.5
         done
-        # If it is still running, stop its whole process group
-        kill -TERM -- "-$GDS_PID" 2>/dev/null || true
-        wait "$GDS_PID" 2>/dev/null || true
+        kill -KILL -- "-$pid" 2>/dev/null || true
+        wait "$pid" 2>/dev/null || true
     fi
 }
-trap stop_gds EXIT
+
+stop_all() {
+    stop_process "$GDS_PID" INT
+    stop_process "$APP_PID" TERM
+}
+trap stop_all EXIT
 
 cd "$WORK_DIR"
-PATH="$TEST_DIR/fake-camera:$PATH" fprime-gds --gui none \
-    "${APP_ARGS[@]}" --dictionary "$DICTIONARY" \
+fprime-gds --gui none --no-app --dictionary "$DICTIONARY" \
     --framing-selection fprime --ip-client --ip-address "$ADDRESS" --ip-port "$PORT" \
     --logs "$WORK_DIR/logs" --file-storage-directory "$WORK_DIR/files" \
     > "$WORK_DIR/gds.out" 2>&1 &
@@ -75,7 +84,7 @@ python -m pytest "$TEST_DIR" \
     --dictionary "$DICTIONARY" --file-storage-directory "$WORK_DIR/files" --logs "$WORK_DIR/pytest-logs" \
     "$@" || status=$?
 
-stop_gds
+stop_all
 trap - EXIT
 if [[ $status -eq 0 ]]; then
     rm -rf "$WORK_DIR"

@@ -64,7 +64,7 @@ def test_half_hz_rate_group(fprime_test_api, app_dir):
     sequence = Path(__file__).parent / "wait_sequence.seq"
     binary = "wait_sequence.bin"
     subprocess.run(
-        ["fprime-seqgen", "-d", str(fprime_test_api.pipeline.dictionary_path), str(sequence), str(app_dir / binary)],
+        ["fprime-seqgen", "--dictionary", str(fprime_test_api.pipeline.dictionary_path), str(sequence), str(app_dir / binary)],
         check=True,
     )
     noop = fprime_test_api.get_event_pred(f"{COMMANDER}.NoOpReceived")

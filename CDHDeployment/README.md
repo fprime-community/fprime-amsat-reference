@@ -42,6 +42,8 @@ cd build-artifacts/<platform>/CDHDeployment/bin/
 ./CDHDeployment -a 127.0.0.1 -p 50000
 ```
 
+`-a` must be an IPv4 address such as `127.0.0.1` or `0.0.0.0`; host names are not resolved.
+
 ## Pi Camera
 
 The `camera` instance (`PiCamera.CameraManager`, see [its design document](../Components/PiCamera/Components/CameraManager/docs/sdd.md)) captures still images by running `rpicam-still`. The camera must be enabled on the Pi; `rpicam-hello --list-cameras` should list it.
@@ -60,8 +62,7 @@ Run these from the project root in the project virtual environment. [CI](../.git
 | Tests | What they cover | Command |
 |---|---|---|
 | Unit | `PiCamera::CameraManager` with fake camera commands | `cd Components/PiCamera/Components/CameraManager && fprime-util generate --ut && fprime-util check` |
-| Unit | `AmsatDrv::TcpServer`, the GDS link, including its shutdown fixes | `cd Components/AmsatDrv/TcpServer && fprime-util generate --ut && fprime-util check` |
-| Host | Health ping table order, ID range, rate group names, and clean exit on SIGTERM, checked against the native build | `python -m pytest CDHDeployment/test/host` |
+| Host | Health ping table order, ID range, rate group names, clean exit on SIGTERM, and surviving GDS disconnects, checked against the native build | `python -m pytest CDHDeployment/test/host` |
 | Integration | The running deployment through the GDS: commands, each rate group, health pings, and the camera including image downlink | `CDHDeployment/test/int/run-integration-tests.sh` |
 | Deploy script | `scripts/deploy-fsw.sh` against stubbed `systemctl`/`sudo` and a scratch Pi home: release layout, service, stock services, preflight errors, Pico detection. Needs the `aarch64-linux` build. | `scripts/test/test-deploy-fsw.sh` |
 

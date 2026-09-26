@@ -58,7 +58,7 @@ module CDHDeployment {
     stack size Default.STACK_SIZE \
     priority 100
 
-  instance eventLogger: Svc.ActiveLogger base id 0x0B00 \
+  instance eventLogger: Svc.EventManager base id 0x0B00 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 98
@@ -100,7 +100,7 @@ module CDHDeployment {
   # ----------------------------------------------------------------------
 
   @ Communications driver. May be swapped with other com drivers like UART or TCP
-  instance comDriver: AmsatDrv.TcpServer base id 0x4000
+  instance comDriver: Drv.TcpServer base id 0x4000
 
   instance framer: Svc.FprimeFramer base id 0x4100
 
