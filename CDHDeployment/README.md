@@ -51,4 +51,16 @@ The `camera` instance (`PiCamera.CameraManager`, see [its design document](../Co
 | `CDHDeployment.camera.CHECK_CAMERA` | Report whether a camera is connected |
 | `CDHDeployment.camera.TAKE_PICTURE` | Capture a JPEG to `images/img_<seconds>_<count>.jpg`, relative to the application's working directory |
 
-Image size and capture delay are set with the `IMAGE_WIDTH`, `IMAGE_HEIGHT` (default 320 × 256), and `CAPTURE_DELAY_MS` (default 1000) parameters. To downlink an image, send `CDHDeployment.fileDownlink.SendFile` with the path from the `PictureTaken` event.
+Image size and capture delay are set with the `IMAGE_WIDTH`, `IMAGE_HEIGHT` (default 320 × 256), and `CAPTURE_DELAY_MS` (default 1000) parameters. To downlink an image, send `CDHDeployment.fileDownlink.SendFile` with the path from the `PictureTaken` event. Command string arguments are limited to 40 characters (`FW_CMD_STRING_MAX_SIZE`), so use the relative path the event reports.
+
+## Testing
+
+Run these from the project root in the project virtual environment. [CI](../.github/workflows/ci.yml) runs all of them, plus an `aarch64-linux` cross-compile, on every push and pull request.
+
+| Tests | What they cover | Command |
+|---|---|---|
+| Unit | `PiCamera::CameraManager` with fake camera commands | `cd Components/PiCamera/Components/CameraManager && fprime-util generate --ut && fprime-util check` |
+| Host | Health ping table order, ID range, and rate group names, checked against the native build | `python -m pytest CDHDeployment/test/host` |
+| Integration | The running deployment through the GDS: commands, each rate group, health pings, and the camera including image downlink | `CDHDeployment/test/int/run-integration-tests.sh` |
+
+The host and integration tests need a native build first (`cd CDHDeployment && fprime-util generate && fprime-util build`). `run-integration-tests.sh` runs the deployment with the stand-in camera commands in [test/int/fake-camera](test/int/fake-camera), so no camera is needed. It takes about 2 minutes, and extra arguments are passed to pytest (for example `-v` or `-k camera`).

@@ -1,0 +1,4 @@
+; Used by test_half_hz_rate_group. cmdSeq processes relative waits in the 0.5 Hz rate group, so the
+; second NO_OP only runs if that rate group is cycling.
+R00:00:00 CDHDeployment.cmdDisp.CMD_NO_OP
+R00:00:03 CDHDeployment.cmdDisp.CMD_NO_OP

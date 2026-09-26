@@ -3,3 +3,4 @@ build-fprime-*
 fprime-venv
 logs
 images
+__pycache__/

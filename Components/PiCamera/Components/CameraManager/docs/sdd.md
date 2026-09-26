@@ -98,6 +98,12 @@ The unit tests replace `rpicam-still` and `rpicam-hello` with shell scripts writ
 | CheckCameraDetected | A listed camera is reported as detected | PICAM-004 |
 | CheckCameraNotDetected | "No cameras available!" is reported as no camera; a missing `rpicam-hello` is a launch failure | PICAM-004, PICAM-005 |
 | Ping | Health pings are answered | PICAM-006 |
+| ParameterCommands | Parameter set commands change the arguments passed to `rpicam-still` | PICAM-002 |
+| CheckCameraLargeOutput | 100 KiB of `rpicam-hello` output is read without blocking, and the camera is still detected | PICAM-004 |
+| ConfigureDirectoryError | An image directory that cannot be created is reported | PICAM-001 |
+| TakePictureKilledBySignal | `rpicam-still` killed by a signal is reported as a failed capture with exit status -1 | PICAM-003 |
+| CaptureFailedThrottle | `CaptureFailed` events stop after 5 while `CaptureFailures` telemetry counts every failure | PICAM-003 |
+| CheckCameraExitError | `rpicam-hello` listing a camera but exiting with an error is reported as no camera | PICAM-004 |
 
 Run them from this directory:
 
