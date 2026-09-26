@@ -71,6 +71,24 @@ class CameraManagerTester final : public CameraManagerGTestBase {
     //! pingIn is answered on pingOut
     void testPing();
 
+    //! configure reports an image directory that cannot be created
+    void testConfigureDirectoryError();
+
+    //! TAKE_PICTURE reports exit status -1 when the still command is killed by a signal
+    void testTakePictureKilledBySignal();
+
+    //! CaptureFailed events are throttled while CaptureFailures telemetry counts every failure
+    void testCaptureFailedThrottle();
+
+    //! Parameter set commands change the arguments passed to the still command
+    void testParameterCommands();
+
+    //! CHECK_CAMERA reports no camera when rpicam-hello lists cameras but exits with an error
+    void testCheckCameraExitError();
+
+    //! CHECK_CAMERA reads large rpicam-hello output without blocking
+    void testCheckCameraLargeOutput();
+
   private:
     // ----------------------------------------------------------------------
     // Helper functions

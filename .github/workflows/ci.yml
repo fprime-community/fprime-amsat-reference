@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Unit, host, and integration tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install F´ tools
+        run: pip install -r lib/fprime/requirements.txt
+
+      - name: CameraManager unit tests
+        working-directory: Components/PiCamera/Components/CameraManager
+        run: |
+          fprime-util generate --ut
+          fprime-util check -j4
+
+      - name: Build CDHDeployment
+        working-directory: CDHDeployment
+        run: |
+          fprime-util generate
+          fprime-util build -j4
+
+      - name: Host checks
+        run: python -m pytest CDHDeployment/test/host -v
+
+      - name: Integration tests
+        env:
+          TMPDIR: ${{ runner.temp }}
+        run: CDHDeployment/test/int/run-integration-tests.sh -v
+
+      - name: Upload integration test logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-test-logs
+          path: ${{ runner.temp }}/cdh-int-*
+
+  cross-compile:
+    name: Cross-compile for the Pi Zero 2 (aarch64)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install F´ tools and the aarch64 cross-compiler
+        run: |
+          pip install -r lib/fprime/requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y g++-aarch64-linux-gnu
+
+      - name: Build CDHDeployment for aarch64-linux
+        working-directory: CDHDeployment
+        env:
+          ARM_TOOLS_PATH: /usr
+        run: |
+          fprime-util generate aarch64-linux
+          fprime-util build aarch64-linux -j4

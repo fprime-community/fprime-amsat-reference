@@ -30,6 +30,36 @@ TEST(Nominal, Ping) {
     tester.testPing();
 }
 
+TEST(Nominal, ParameterCommands) {
+    PiCamera::CameraManagerTester tester;
+    tester.testParameterCommands();
+}
+
+TEST(Nominal, CheckCameraLargeOutput) {
+    PiCamera::CameraManagerTester tester;
+    tester.testCheckCameraLargeOutput();
+}
+
+TEST(OffNominal, ConfigureDirectoryError) {
+    PiCamera::CameraManagerTester tester;
+    tester.testConfigureDirectoryError();
+}
+
+TEST(OffNominal, TakePictureKilledBySignal) {
+    PiCamera::CameraManagerTester tester;
+    tester.testTakePictureKilledBySignal();
+}
+
+TEST(OffNominal, CaptureFailedThrottle) {
+    PiCamera::CameraManagerTester tester;
+    tester.testCaptureFailedThrottle();
+}
+
+TEST(OffNominal, CheckCameraExitError) {
+    PiCamera::CameraManagerTester tester;
+    tester.testCheckCameraExitError();
+}
+
 TEST(OffNominal, TakePictureCommandFails) {
     PiCamera::CameraManagerTester tester;
     tester.testTakePictureCommandFails();

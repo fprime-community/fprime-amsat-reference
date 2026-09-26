@@ -1,0 +1,5 @@
+#!/bin/sh
+# Stand-in for rpicam-hello used by the integration tests. Reports one connected camera.
+echo 'Available cameras'
+echo '-----------------'
+echo '0 : ov5647 [2592x1944 10-bit GBRG] (/base/soc/i2c0mux/i2c@1/ov5647@36)'

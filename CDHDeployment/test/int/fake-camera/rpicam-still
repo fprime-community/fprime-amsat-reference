@@ -1,0 +1,13 @@
+#!/bin/sh
+# Stand-in for rpicam-still used by the integration tests. Like rpicam-still, waits for the -t time in
+# milliseconds, then writes its arguments to the file given with -o.
+out=''
+delay=0
+prev=''
+for arg in "$@"; do
+    if [ "$prev" = '-o' ]; then out="$arg"; fi
+    if [ "$prev" = '-t' ]; then delay="$arg"; fi
+    prev="$arg"
+done
+sleep "$(awk "BEGIN { print $delay / 1000 }")"
+printf 'FAKE-JPEG %s\n' "$*" > "$out"
